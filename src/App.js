@@ -3,6 +3,7 @@ import { SubHeader } from 'components/Subheader'
 import { SubSubHeader } from 'components/Subsubheader'
 import { Button } from 'components/Button'
 import { Title } from 'components/Title'
+import { MongoBanner } from 'components/MongoBanner'
 
 const App = () => {
   return (
@@ -11,8 +12,8 @@ const App = () => {
       <SubHeader>Less Cool Text</SubHeader>
       <SubSubHeader>Kind of boring text</SubSubHeader>
       <Title>Hello World</Title>
-      <Button>
-      I'm a cool button</Button>
+      <Button>I'm a cool button</Button>
+      <MongoBanner />
     </div>
   )
 }
