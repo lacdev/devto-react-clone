@@ -22,9 +22,9 @@ const App = () => {
       <IconList/>
       <OtherList/>
       <SocialMediaIcons/>
-      <Footer/>
-      </Container>
       
+      </Container>
+      <Footer/>
     </div>
   )
 }
