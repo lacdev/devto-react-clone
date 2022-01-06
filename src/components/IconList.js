@@ -1,8 +1,8 @@
 import React from 'react'
 
 const IconList = () => {
-    const parent = 'flex flex-col rounded-lg bg-slate-100 w-64 h-auto mt-3'
-    const list = 'flex h-10 py-2 px-4 content-end hover:bg-indigo-500 hover:underline decoration-blue-600 hover:text-blue-600'
+    const parent = 'flex flex-col bg-slate-100 w-64 h-auto mt-3'
+    const list = 'flex h-10 py-2 px-4 content-end hover:bg-indigo-100 hover:underline decoration-blue-600 hover:text-blue-600'
     const util = 'mr-1'
     return (
         <ul className={parent}>
