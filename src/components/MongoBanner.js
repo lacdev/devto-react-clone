@@ -4,10 +4,12 @@ const MongoBanner = () => {
   return (
     <>
       <div className="container rounded-md flex justify-around p-8 mx-auto px-4 relative bg-purple-100">
-        <button className="absolute top-3 right-8 text-3xl font-bold">X</button>
+        <button className="absolute top-6 right-12 text-3xl font-bold">
+          X
+        </button>
         <div className="flex-col">
           <h4 className="text-lg font-bold mt-4">Dec 13 - Jan 13, 2022</h4>
-          <h1 className="text-6xl font-bold mt-2 leading-normal">
+          <h1 className="text-5xl font-extrabold mt-2 leading-normal">
             There's Still Time to
             <br></br>
             Join the MongoDB
