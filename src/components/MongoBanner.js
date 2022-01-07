@@ -1,15 +1,27 @@
 const MongoBanner = () => {
-  //   const banner = ''
+  const enterButton =
+    'my-6 px-6 py-4 border-2 text-2xl font-bold border-black  text-black bg-indigo-100'
+
+  const closeButton = 'absolute top-6 right-12 text-3xl font-bold'
+
+  const bannerContainer =
+    'container rounded-md flex justify-around p-8 mx-auto px-4 relative bg-purple-100'
+
+  const dateText = 'text-lg font-bold mt-4'
+
+  const bannerHeroText = 'text-5xl font-extrabold mt-2 leading-normal'
+
+  const bannerParagraph = 'text-2xl mt-4 font-semibold'
+
+  const imagesContainer = 'flex-col items-center content-center mt-4'
 
   return (
     <>
-      <div className="container rounded-md flex justify-around p-8 mx-auto px-4 relative bg-purple-100">
-        <button className="absolute top-6 right-12 text-3xl font-bold">
-          X
-        </button>
+      <div className={bannerContainer}>
+        <button className={closeButton}>X</button>
         <div className="flex-col">
-          <h4 className="text-lg font-bold mt-4">Dec 13 - Jan 13, 2022</h4>
-          <h1 className="text-5xl font-extrabold mt-2 leading-normal">
+          <h4 className={dateText}>Dec 13 - Jan 13, 2022</h4>
+          <h1 className={bannerHeroText}>
             There's Still Time to
             <br></br>
             Join the MongoDB
@@ -18,17 +30,15 @@ const MongoBanner = () => {
             <br></br>
             DEV!
           </h1>
-          <h2 className="text-2xl mt-4 font-semibold">
+          <h2 className={bannerParagraph}>
             Build an application using MongoDB Atlas for
             <br></br>
             your chance to win up to $1,500 USD in cash &<br></br>
             lots more!
           </h2>
-          <button className="my-6 px-6 py-4 border-2 text-2xl font-bold border-black  text-black bg-indigo-100">
-            Enter Today
-          </button>
+          <button className={enterButton}>Enter Today</button>
         </div>
-        <div className="flex-col items-center content-center mt-4">
+        <div className={imagesContainer}>
           <div className="flex justify-center">
             <img
               className="object-contain h-20 w-96"
