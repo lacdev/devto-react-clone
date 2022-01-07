@@ -10,24 +10,26 @@ import { Container } from 'components/Container'
 import { IconList } from 'components/IconList'
 import { OtherList } from 'components/OtherList'
 import { SocialMediaIcons } from 'components/SocialMediaIcons'
-import {Footer} from 'components/Footer'
+import { Footer } from 'components/Footer'
+import { MongoBanner } from 'components/MongoBanner'
 function Home() {
-    return (
-        <div className='bg-neutral-700'>
-            <Navbar/>
-            <Container>
-                <Header>Hola estas en Home</Header>
-                <SubHeader>Aqui debe ir los posts</SubHeader>
-                <SubSubHeader>Esto es un ejemplo</SubSubHeader>
-                <Title>DevTo Clone Reto React</Title>
-                <Button>Pushame XD</Button>
-                <IconList/>
-                <OtherList/>
-                <SocialMediaIcons/>
-            </Container>
-          <Footer/>
-        </div>
-    )
+  return (
+    <div className="bg-neutral-700">
+      <Navbar />
+      <Container>
+        <MongoBanner />
+        <Header>Hola estas en Home</Header>
+        <SubHeader>Aqui debe ir los posts</SubHeader>
+        <SubSubHeader>Esto es un ejemplo</SubSubHeader>
+        <Title>DevTo Clone Reto React</Title>
+        <Button>Pushame XD</Button>
+        <IconList />
+        <OtherList />
+        <SocialMediaIcons />
+      </Container>
+      <Footer />
+    </div>
+  )
 }
 
 export default Home
