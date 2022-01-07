@@ -9,11 +9,13 @@ import { OtherList } from 'components/OtherList'
 import { SocialMediaIcons } from 'components/SocialMediaIcons'
 import {Footer} from 'components/Footer'
 import { OnePostRightBar } from 'components/OnePostRightBar'
+import { Navbar } from 'components/Navbar'
 
 
 const App = () => {
   return (
     <div className="bg-black">
+       <Navbar/>
        <OnePostRightBar/>
       <Container>
       <Header>This is our Dev.to Clone </Header>
