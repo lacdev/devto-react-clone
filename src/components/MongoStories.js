@@ -1,6 +1,6 @@
 const MongoStories = () => {
   const classes = {
-    container: 'flex-col w-80 h-auto rounded-lg flex-col mx-auto bg-gray-50',
+    container: 'flex-col w-80 h-auto rounded-lg flex-col  bg-gray-50',
     submitButton:
       'px-8 mt-3 mx-2 mb-2 py-2 bg-indigo-600 font-semibold text-white text-center rounded-lg hover:bg-indigo-700',
     seePostsButton:
