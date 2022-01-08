@@ -35,9 +35,7 @@ const MongoBanner = () => {
             your chance to win up to $1,500 USD in cash &<br></br>
             lots more!
           </h2>
-          <button className={classes.bannerContainerenterButton}>
-            Enter Today
-          </button>
+          <button className={classes.enterButton}>Enter Today</button>
         </div>
         <div className={classes.imagesContainer}>
           <div className="flex justify-center">
