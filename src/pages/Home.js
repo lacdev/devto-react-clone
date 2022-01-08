@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Navbar } from 'components/Navbar'
+//import { Navbar } from 'components/Navbar'
 import { Header } from 'components/Header'
 import { SubHeader } from 'components/Subheader'
 import { SubSubHeader } from 'components/Subsubheader'
@@ -14,7 +14,7 @@ import {Footer} from 'components/Footer'
 function Home() {
     return (
         <div className='bg-neutral-700'>
-            <Navbar/>
+         
             <Container>
                 <Header>Hola estas en Home</Header>
                 <SubHeader>Aqui debe ir los posts</SubHeader>

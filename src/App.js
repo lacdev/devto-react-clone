@@ -15,19 +15,21 @@ import CreatePost from 'pages/CreatePost';
 
 const App = () => {
   return (
+   
+      <BrowserRouter>
+    <Navbar/>
+  <Routes>
+  <Route path="/" element={<Home/>} /> 
+  <Route path="/CreatePost" element={<CreatePost/>} />
+  <Route path="/Search" element={<Search/>} />
+  <Route path="/Post" element={<Post/>} /> 
+  <Route path="*" element={<NotFoundPage/>} />
+  
+  </Routes>
      
-    <BrowserRouter>
-      
-    <Routes>
-    <Route path="*" element={<NotFoundPage/>} />
-    <Route path="/" element={<Home/>} /> 
-    <Route path="/Post" element={<Post/>} />
-    <Route path="/Search" element={<Search/>} />
-    <Route path="/CreatePost" element={<CreatePost/>} />
+  </BrowserRouter>
+ 
     
-    </Routes>
-       
-    </BrowserRouter>
      
     
    
