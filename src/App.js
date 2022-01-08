@@ -1,19 +1,32 @@
-import { Header } from './components/Header'
-import { SubHeader } from './components/Subheader'
-import { SubSubHeader } from './components/Subsubheader'
-import { Button } from './components/Button'
-import { Title } from './components/Title'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+//Components
+
+//Pages
+import NotFoundPage from "pages/NotFoundPage";
+import Home from "pages/Home";
+import Post from "pages/Post";
+import Search from "pages/Search";
+import CreatePost from "pages/CreatePost";
+import { Footer } from "components/Footer";
+import { Navbar } from "components/Navbar";
 
 const App = () => {
   return (
-    <div className="bg-black">
-      <Header>This is our Dev.to Clone</Header>
-      <SubHeader>Less Cool Text</SubHeader>
-      <SubSubHeader>Kind of boring text</SubSubHeader>
-      <Title>Hello World</Title>
-      <Button>I'm a cool button</Button>
-    </div>
-  )
-}
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="*" element={<NotFoundPage />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/Post" element={<Post />} />
+          <Route path="/Search" element={<Search />} />
+          <Route path="/CreatePost" element={<CreatePost />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </>
+  );
+};
 
-export default App
+export default App;
