@@ -1,15 +1,15 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 //Components
 
 //Pages
-import NotFoundPage from 'pages/NotFoundPage'
-import Home from 'pages/Home'
-import Post from 'pages/Post'
-import Search from 'pages/Search'
-import CreatePost from 'pages/CreatePost'
-import { Footer } from 'components/Footer'
-import { Navbar } from 'components/Navbar'
+import NotFoundPage from "pages/NotFoundPage";
+import Home from "pages/Home";
+import Post from "pages/Post";
+import Search from "pages/Search";
+import CreatePost from "pages/CreatePost";
+import { Footer } from "components/Footer";
+import { Navbar } from "components/Navbar";
 
 const App = () => {
   return (
@@ -26,7 +26,7 @@ const App = () => {
         <Footer />
       </BrowserRouter>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
