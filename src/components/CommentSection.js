@@ -1,17 +1,21 @@
 const CommentSection = () => {
   const classes = {
     avatar: 'w-10 h-10 mx-4 rounded-full cursor-pointer',
+    subscribe:
+      'bg-gray-100 hover:bg-gray-200 hover:text-gray-600 text-gray-500 font-semibold py-2 px-3 rounded text-center border-2 border-gray-300 hover:border-gray-400',
+    commentBorder: 'p-3 border rounded-md border-gray-300',
+    commentsButtons:
+      'px-2 py-1 mr-3 font-medium rounded-md hover:bg-gray-200 bg-slate-100 hover:font-medium',
+    discussion: 'font-bold text-2xl',
   }
 
   return (
     <div className="w-3/4 p-10 ">
       <div className="flex flex-col">
         <div className="flex justify-between">
-          <h2 className="font-bold text-2xl">Discussion (1)</h2>
+          <h2 className={classes.discussion}>Discussion (2)</h2>
 
-          <button className="bg-gray-100 hover:bg-gray-200 hover:text-gray-600 text-gray-500 font-semibold py-2 px-3 rounded text-center border-2 border-gray-300 hover:border-gray-400 ">
-            Subscribe
-          </button>
+          <button className={classes.subscribe}>Subscribe</button>
         </div>
         <div className="flex mt-4">
           <img
@@ -19,7 +23,7 @@ const CommentSection = () => {
             src="https://avatars.githubusercontent.com/u/1024025?v=4"
             alt="linus-avatar"
           ></img>
-          <div className="p-3 border rounded-md border-gray-300">
+          <div className={classes.commentBorder}>
             <div className="flex">
               <h3 className="font-semibold mr-5">Linus Torvalds</h3>
               <h4>Oct 19 '21</h4>
@@ -33,7 +37,7 @@ const CommentSection = () => {
               layout.
             </div>
             <div className="flex mt-3">
-              <button className="px-2 py-1 mr-3 font-medium rounded-md hover:bg-gray-200 bg-slate-100 hover:font-medium">
+              <button className={classes.commentsButtons}>
                 <span className="flex items-center">
                   <img
                     className="w-4 h-4 mr-2"
@@ -44,7 +48,7 @@ const CommentSection = () => {
                 </span>
               </button>
               <div>
-                <button className="px-2 py-1 font-medium mr-3 rounded-md hover:bg-gray-200 bg-slate-100 hover:font-medium">
+                <button className={classes.commentsButtons}>
                   <span className="flex items-center">
                     <img
                       className="w-4 h-4 mr-2"
@@ -64,7 +68,7 @@ const CommentSection = () => {
             src="https://avatars.githubusercontent.com/u/150330?v=4"
             alt="kyle-avatar"
           ></img>
-          <div className="p-3 border rounded-md border-gray-300">
+          <div className={classes.commentBorder}>
             <div className="flex">
               <h3 className="font-semibold mr-5">Kyle Simpson</h3>
               <h4>Nov 28 '21</h4>
@@ -75,7 +79,7 @@ const CommentSection = () => {
               involving articles like this one. Great job
             </div>
             <div className="flex mt-3">
-              <button className="px-2 py-1 mr-3 font-medium rounded-md hover:bg-gray-200 bg-slate-100 hover:font-medium">
+              <button className={classes.commentsButtons}>
                 <span className="flex items-center">
                   <img
                     className="w-4 h-4 mr-2"
@@ -86,7 +90,7 @@ const CommentSection = () => {
                 </span>
               </button>
               <div>
-                <button className="px-2 py-1 font-medium mr-3 rounded-md hover:bg-gray-200 bg-slate-100 hover:font-medium">
+                <button className={classes.commentsButtons}>
                   <span className="flex items-center">
                     <img
                       className="w-4 h-4 mr-2"
