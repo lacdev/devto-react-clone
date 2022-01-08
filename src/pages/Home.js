@@ -1,33 +1,37 @@
 import React from 'react'
 
-import { Navbar } from 'components/Navbar'
-import { Header } from 'components/Header'
-import { SubHeader } from 'components/Subheader'
-import { SubSubHeader } from 'components/Subsubheader'
-import { Button } from 'components/Button'
-import { Title } from 'components/Title'
 import { Container } from 'components/Container'
 import { IconList } from 'components/IconList'
 import { OtherList } from 'components/OtherList'
 import { SocialMediaIcons } from 'components/SocialMediaIcons'
-import {Footer} from 'components/Footer'
+import { MongoBanner } from 'components/MongoBanner'
+import { Main } from 'components/Main'
+import { MongoStories } from 'components/MongoStories'
+import { LeftBarAdvertising } from 'components/LeftBarAdvertising'
+import { CommentSection } from 'components/CommentSection'
+import { Columns } from 'components/Columns'
 function Home() {
-    return (
-        <div className='bg-neutral-700'>
-            <Navbar/>
-            <Container>
-                <Header>Hola estas en Home</Header>
-                <SubHeader>Aqui debe ir los posts</SubHeader>
-                <SubSubHeader>Esto es un ejemplo</SubSubHeader>
-                <Title>DevTo Clone Reto React</Title>
-                <Button>Pushame XD</Button>
-                <IconList/>
-                <OtherList/>
-                <SocialMediaIcons/>
-            </Container>
-          <Footer/>
-        </div>
-    )
+  return (
+    <div className="bg-slate-100">
+      <Container>
+        <MongoBanner />
+        <Main>
+          <Columns>
+            <IconList />
+            <OtherList />
+            <SocialMediaIcons />
+            <LeftBarAdvertising />
+          </Columns>
+          <Columns>
+            <CommentSection />
+          </Columns>
+          <Columns>
+            <MongoStories />
+          </Columns>
+        </Main>
+      </Container>
+    </div>
+  )
 }
 
 export default Home
