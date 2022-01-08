@@ -1,9 +1,8 @@
 import React from "react";
 
 //CSS properties
-const cssInput =
-  "border borde-black rounded-md w-[420px] h-[39px] text-[16p x] bg-[#ffffff]";
-const cssIcon = " absolute -translate-x-10 translate-y-2 cursor-pointer";
+const cssInput = "border  w-80 h-12 rounded-xl p-2 mx-1 my-1 bg-[#ffffff]";
+const cssIcon = " absolute translate-x-[360px] translate-y-4 cursor-pointer ";
 
 export const SearchBar = () => {
   return (

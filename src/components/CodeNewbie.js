@@ -1,12 +1,12 @@
 import React from "react";
 
 //css styles
-const container = "border w-[271px] h-[304px] bg-[#ffffff] rounded-md";
+const container = "flex-col w-80 h-auto rounded-lg flex-col  bg-gray-50 mt-3 p-6 ";
 const banner =
-  " w-[239px] mx-auto my-[16px] h-[120px] bg-cover bg-[url('https://res.cloudinary.com/practicaldev/image/fetch/s--9vVmp1An--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_350/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/x2ub0oz6n38corcwxqg8.png')]";
-const tittle = " font-bold text-lg mx-[16px] mb-[18px]";
-const meta = "font-bold text-[14px] mx-[16px]";
-const paraghrap = "text-blue-700 mx-[16px] mb-[auto]";
+  " w-[100%] h-[120px] bg-cover bg-[url('https://res.cloudinary.com/practicaldev/image/fetch/s--9vVmp1An--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_350/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/x2ub0oz6n38corcwxqg8.png')]";
+const tittle = "font-bold text-2xl mb-2";
+const meta = "font-bold text-md cursor-pointer";
+const paraghrap = "text-blue-700  m-1";
 
 export const CodeNewbie = () => {
   return (
