@@ -10,6 +10,8 @@ import { MongoStories } from 'components/MongoStories'
 import { LeftBarAdvertising } from 'components/LeftBarAdvertising'
 import { CommentSection } from 'components/CommentSection'
 import { Columns } from 'components/Columns'
+import StickerPack from 'components/StickerPack'
+import Listings from 'components/Listings'
 function Home() {
   return (
     <div className="bg-slate-100">
@@ -20,6 +22,7 @@ function Home() {
             <IconList />
             <OtherList />
             <SocialMediaIcons />
+            <StickerPack />
             <LeftBarAdvertising />
           </Columns>
           <Columns>
@@ -27,6 +30,7 @@ function Home() {
           </Columns>
           <Columns>
             <MongoStories />
+            <Listings />
           </Columns>
         </Main>
       </Container>
