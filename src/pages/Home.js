@@ -9,9 +9,10 @@ import { Footer } from 'components/Footer'
 import { MongoBanner } from 'components/MongoBanner'
 import { Main } from 'components/Main'
 import { CreatePostButton } from 'components/CreatePostButton'
+import { MongoStories } from 'components/MongoStories'
 function Home() {
   return (
-    <div className="bg-neutral-700">
+    <div className="bg-slate-100">
       <Navbar />
       <Container>
         <MongoBanner />
@@ -19,6 +20,7 @@ function Home() {
           <IconList />
           <OtherList />
           <SocialMediaIcons />
+          <MongoStories />
           <CreatePostButton>Create Post</CreatePostButton>
         </Main>
       </Container>
