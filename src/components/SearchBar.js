@@ -3,7 +3,7 @@ import React from "react";
 //CSS properties
 const cssInput =
   "border borde-black rounded-md w-[420px] h-[39px] text-[16p x] bg-[#ffffff]";
-const cssIcon = " absolute -translate-x-10 translate-y-2";
+const cssIcon = " absolute -translate-x-10 translate-y-2 cursor-pointer";
 
 export const SearchBar = () => {
   return (
