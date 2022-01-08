@@ -8,7 +8,6 @@ import { SocialMediaIcons } from 'components/SocialMediaIcons'
 import { Footer } from 'components/Footer'
 import { MongoBanner } from 'components/MongoBanner'
 import { Main } from 'components/Main'
-import { CreatePostButton } from 'components/CreatePostButton'
 import { MongoStories } from 'components/MongoStories'
 import { LeftBarAdvertising } from 'components/LeftBarAdvertising'
 function Home() {
@@ -23,7 +22,6 @@ function Home() {
           <SocialMediaIcons />
           <MongoStories />
           <LeftBarAdvertising />
-          <CreatePostButton>Create Post</CreatePostButton>
         </Main>
       </Container>
       <Footer />
