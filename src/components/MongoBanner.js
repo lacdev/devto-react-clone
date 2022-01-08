@@ -4,7 +4,7 @@ const MongoBanner = () => {
       'my-6 px-6 py-4 border-2 text-2xl font-bold border-black  text-black bg-indigo-100',
     closeButton: 'absolute top-6 right-12 text-3xl font-bold',
     bannerContainer:
-      'container rounded-md flex justify-around p-8 mx-auto px-4 relative bg-purple-100',
+      'container mt-8 rounded-md flex justify-around p-8 mx-auto px-4 relative bg-purple-100',
     dateText: 'text-lg font-bold mt-4',
     bannerHeroText: 'text-5xl font-extrabold mt-2 leading-normal',
     bannerParagraph: 'text-2xl mt-4 font-semibold',

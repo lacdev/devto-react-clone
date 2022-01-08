@@ -11,7 +11,6 @@ function Footer() {
     <footer className={parent}>
       <div className={confoot}>
         <p className={foottext}>
-          {' '}
           <label className={textdecoration}> DEV Community </label> — A
           constructive and inclusive social network for software developers.
           With you every step of your journey.
@@ -19,7 +18,6 @@ function Footer() {
 
         <div>
           <p className={foottext}>
-            {' '}
             Built on
             <label className={textdecoration2}> Forem</label>— the
             <label className={textdecoration2}> open source </label>
@@ -28,7 +26,6 @@ function Footer() {
             and other inclusive communities.
           </p>
           <p className={foottext}>
-            {' '}
             Made with love and
             <label className={textdecoration2}> Ruby on Rails. </label>
             DEV Community © 2016 - 2022.

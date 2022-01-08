@@ -3,7 +3,7 @@ import React from 'react'
 function SocialMediaIcons() {
   const parent = 'flex flex-wrap justify-start bg-slate-100 w-64 h-auto mb-4'
   const conicon =
-    'flex mx-1 p-2 hover:rounded-lg hover:bg-indigo-100  hover:fill-indigo-600 focus-visible '
+    'flex mx-1 p-2 hover:rounded-lg hover:bg-indigo-100  hover:fill-indigo-600 focus-visible cursor-pointer '
 
   return (
     <div className={parent}>
