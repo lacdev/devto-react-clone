@@ -10,10 +10,11 @@ import { MongoBanner } from 'components/MongoBanner'
 import { Main } from 'components/Main'
 import { MongoStories } from 'components/MongoStories'
 import { LeftBarAdvertising } from 'components/LeftBarAdvertising'
+import { CommentSection } from 'components/CommentSection'
 function Home() {
   return (
     <div className="bg-slate-100">
-      <Navbar />
+      <Navbar></Navbar>
       <Container>
         <MongoBanner />
         <Main>
@@ -22,6 +23,7 @@ function Home() {
           <SocialMediaIcons />
           <MongoStories />
           <LeftBarAdvertising />
+          <CommentSection />
         </Main>
       </Container>
       <Footer />
