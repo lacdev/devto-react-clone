@@ -10,6 +10,7 @@ import { MongoBanner } from 'components/MongoBanner'
 import { Main } from 'components/Main'
 import { CreatePostButton } from 'components/CreatePostButton'
 import { MongoStories } from 'components/MongoStories'
+import { LeftBarAdvertising } from 'components/LeftBarAdvertising'
 function Home() {
   return (
     <div className="bg-slate-100">
@@ -21,6 +22,7 @@ function Home() {
           <OtherList />
           <SocialMediaIcons />
           <MongoStories />
+          <LeftBarAdvertising />
           <CreatePostButton>Create Post</CreatePostButton>
         </Main>
       </Container>
