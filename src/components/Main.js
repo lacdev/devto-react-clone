@@ -1,5 +1,5 @@
 const Main = ({ children }) => {
-  return <div>{children}</div>
+  return <div className="flex">{children}</div>
 }
 
 export { Main }
