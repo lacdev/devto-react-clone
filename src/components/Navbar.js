@@ -16,7 +16,7 @@ function Navbar() {
     <div className={classes.navparent}>
       <nav className={classes.nav}>
         <div className={classes.flexItems}>
-          <div className="flex"> 
+          <div className="flex items-center"> 
             <a href="/" class="site-logo" aria-label="DEV Community Home">
               <img
                 className="w-14 h-14 ml-4"
