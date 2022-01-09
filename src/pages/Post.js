@@ -6,7 +6,7 @@ import { Container } from 'components/Container'
 function Post() {
   return (
     <div>
-      <Navbar />
+      
       <Container>
         <OnePostRightBar />
       </Container>
