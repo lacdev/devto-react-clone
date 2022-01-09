@@ -1,8 +1,7 @@
-import React from 'react'
-
-import {Footer} from 'components/Footer'
-import { Link } from 'react-router-dom'
-const userId=10
+import React from "react";
+import { ResultsSideBar } from "components/ResultsSideBar";
+import { Container } from "components/Container";
+import { Columns } from "components/Columns";
 function Search() {
    
     return (
