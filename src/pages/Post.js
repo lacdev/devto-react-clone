@@ -2,15 +2,16 @@ import React from 'react'
 
 import { Navbar } from 'components/Navbar'
 import { OnePostRightBar } from 'components/OnePostRightBar'
-import {Footer} from 'components/Footer'
+import { Container } from 'components/Container'
 function Post() {
-    return (
-        <div>
-            <Navbar/>
-            <OnePostRightBar/>
-            <Footer/>
-        </div>
-    )
+  return (
+    <div>
+      <Navbar />
+      <Container>
+        <OnePostRightBar />
+      </Container>
+    </div>
+  )
 }
 
 export default Post
