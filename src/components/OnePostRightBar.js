@@ -1,4 +1,9 @@
 import React from 'react'
+import { Columns } from 'components/Columns'
+import { CommentSection } from './CommentSection'
+import { ReadNext } from './ReadNext'
+import PostProfile from 'components/PostProfile'
+import MoreProfile from 'components/MoreProfile'
 
 // function OnePostRightBar() {
 //   const parent = 'grid row-end-2 h-max w-24 block mt-8 '

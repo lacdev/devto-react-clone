@@ -10,8 +10,9 @@ import { MongoStories } from 'components/MongoStories'
 import { LeftBarAdvertising } from 'components/LeftBarAdvertising'
 import { Columns } from 'components/Columns'
 import { CodeNewbie } from 'components/CodeNewbie'
-import { RightbarHelp } from 'components/RightBarHelp'
 import { MainCard } from 'components/MainCard'
+import StickerPack from 'components/StickerPack'
+import Listings from 'components/Listings'
 
 function Home() {
   return (
@@ -23,6 +24,7 @@ function Home() {
             <IconList />
             <OtherList />
             <SocialMediaIcons />
+            <StickerPack />
             <LeftBarAdvertising />
           </Columns>
           <Columns>
@@ -31,7 +33,7 @@ function Home() {
           <Columns>
             <CodeNewbie />
             <MongoStories />
-            <RightbarHelp />
+            <Listings />
           </Columns>
         </Main>
       </Container>
