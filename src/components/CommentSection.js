@@ -10,7 +10,7 @@ const CommentSection = () => {
   }
 
   return (
-    <div className="w-3/4 p-10 ">
+    <div className="w-3/4 p-10 bg-white">
       <div className="flex flex-col">
         <div className="flex justify-between">
           <h2 className={classes.discussion}>Discussion (2)</h2>
@@ -52,7 +52,7 @@ const CommentSection = () => {
                   <span className="flex items-center">
                     <img
                       className="w-4 h-4 mr-2"
-                      src="https://cdn-icons.flaticon.com/png/512/3318/premium/3318523.png?token=exp=1641623707~hmac=1b9d9dfa778d90466013bb8a3bbadfd9"
+                      src="https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/Comments-512.png"
                       alt="reply icon"
                     ></img>
                     Reply
@@ -94,7 +94,7 @@ const CommentSection = () => {
                   <span className="flex items-center">
                     <img
                       className="w-4 h-4 mr-2"
-                      src="https://cdn-icons.flaticon.com/png/512/3318/premium/3318523.png?token=exp=1641623707~hmac=1b9d9dfa778d90466013bb8a3bbadfd9"
+                      src="https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/Comments-512.png"
                       alt="reply icon"
                     ></img>
                     Reply

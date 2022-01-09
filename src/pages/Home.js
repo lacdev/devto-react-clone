@@ -1,18 +1,17 @@
-import React from "react";
+import React from 'react'
 
-import { Container } from "components/Container";
-import { IconList } from "components/IconList";
-import { OtherList } from "components/OtherList";
-import { SocialMediaIcons } from "components/SocialMediaIcons";
-import { MongoBanner } from "components/MongoBanner";
-import { Main } from "components/Main";
-import { MongoStories } from "components/MongoStories";
-import { LeftBarAdvertising } from "components/LeftBarAdvertising";
-import { CommentSection } from "components/CommentSection";
-import { Columns } from "components/Columns";
-import { ReadNext } from "components/ReadNext";
-import { CodeNewbie } from "components/CodeNewbie";
-import { RightbarHelp } from "components/RightBarHelp";
+import { Container } from 'components/Container'
+import { IconList } from 'components/IconList'
+import { OtherList } from 'components/OtherList'
+import { SocialMediaIcons } from 'components/SocialMediaIcons'
+import { MongoBanner } from 'components/MongoBanner'
+import { Main } from 'components/Main'
+import { MongoStories } from 'components/MongoStories'
+import { LeftBarAdvertising } from 'components/LeftBarAdvertising'
+import { CommentSection } from 'components/CommentSection'
+import { Columns } from 'components/Columns'
+import { CodeNewbie } from 'components/CodeNewbie'
+import { RightbarHelp } from 'components/RightBarHelp'
 
 function Home() {
   return (
@@ -28,7 +27,6 @@ function Home() {
           </Columns>
           <Columns>
             <CommentSection />
-            <ReadNext />
           </Columns>
           <Columns>
             <CodeNewbie />
@@ -38,7 +36,7 @@ function Home() {
         </Main>
       </Container>
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home
