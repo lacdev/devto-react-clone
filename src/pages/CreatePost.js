@@ -1,14 +1,7 @@
 import React from 'react'
 
-
-import {Footer} from 'components/Footer'
 function CreatePost() {
-    return (
-        <div>
-           
-            <Footer/>
-        </div>
-    )
+  return <div></div>
 }
 
 export default CreatePost

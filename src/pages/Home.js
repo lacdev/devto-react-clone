@@ -1,33 +1,43 @@
 import React from 'react'
-
-//import { Navbar } from 'components/Navbar'
-import { Header } from 'components/Header'
-import { SubHeader } from 'components/Subheader'
-import { SubSubHeader } from 'components/Subsubheader'
-import { Button } from 'components/Button'
-import { Title } from 'components/Title'
+import { Outlet } from 'react-router-dom'
 import { Container } from 'components/Container'
 import { IconList } from 'components/IconList'
 import { OtherList } from 'components/OtherList'
 import { SocialMediaIcons } from 'components/SocialMediaIcons'
-import {Footer} from 'components/Footer'
+import { MongoBanner } from 'components/MongoBanner'
+import { Main } from 'components/Main'
+import { MongoStories } from 'components/MongoStories'
+import { LeftBarAdvertising } from 'components/LeftBarAdvertising'
+import { Columns } from 'components/Columns'
+import { CodeNewbie } from 'components/CodeNewbie'
+import { RightbarHelp } from 'components/RightBarHelp'
+import { MainCard } from 'components/MainCard'
+
 function Home() {
-    return (
-        <div className='bg-neutral-700'>
-         
-            <Container>
-                <Header>Hola estas en Home</Header>
-                <SubHeader>Aqui debe ir los posts</SubHeader>
-                <SubSubHeader>Esto es un ejemplo</SubSubHeader>
-                <Title>DevTo Clone Reto React</Title>
-                <Button>Pushame XD</Button>
-                <IconList/>
-                <OtherList/>
-                <SocialMediaIcons/>
-            </Container>
-          <Footer/>
-        </div>
-    )
+  return (
+    <div className="bg-slate-100">
+      <Container>
+        <MongoBanner />
+        <Main>
+          <Columns>
+            <IconList />
+            <OtherList />
+            <SocialMediaIcons />
+            <LeftBarAdvertising />
+          </Columns>
+          <Columns>
+            <MainCard />
+          </Columns>
+          <Columns>
+            <CodeNewbie />
+            <MongoStories />
+            <RightbarHelp />
+          </Columns>
+        </Main>
+      </Container>
+      <Outlet />
+    </div>
+  )
 }
 
 export default Home
