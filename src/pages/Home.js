@@ -13,8 +13,8 @@ import { Columns } from "components/Columns";
 import { ReadNext } from "components/ReadNext";
 import { CodeNewbie } from "components/CodeNewbie";
 import { RightbarHelp } from "components/RightBarHelp";
-import StickerPack from 'components/StickerPack'
-import Listings from 'components/Listings'
+import { StickerPack } from 'components/StickerPack'
+import {Listings} from 'components/Listings'
 
 function Home() {
   return (
