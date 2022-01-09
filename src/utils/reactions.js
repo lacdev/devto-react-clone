@@ -1,5 +1,3 @@
-const generateRandomReactions = () => {
-  return Math.floor(Math.random() * 250)
-}
+const generateRandomReactions = () => Math.floor(Math.random() * 250)
 
 export { generateRandomReactions }
