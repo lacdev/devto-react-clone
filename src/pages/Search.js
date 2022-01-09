@@ -1,9 +1,9 @@
 import React from "react";
-import { Navbar } from "components/Navbar";
-import { Footer } from "components/Footer";
 import { ResultsSideBar } from "components/ResultsSideBar";
 import { Container } from "components/Container";
 import { Columns } from "components/Columns";
+import { Render } from "components/Render";
+
 function Search() {
   return (
     <div>
@@ -11,7 +11,10 @@ function Search() {
         <Columns>
           <ResultsSideBar />
         </Columns>
-        <Columns></Columns>
+        <Columns>
+          <Input />
+          <Render />
+        </Columns>
       </Container>
     </div>
   );
