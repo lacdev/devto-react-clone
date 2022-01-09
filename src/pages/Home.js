@@ -1,4 +1,5 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 import { Container } from 'components/Container'
 import { IconList } from 'components/IconList'
@@ -35,6 +36,7 @@ function Home() {
           </Columns>
         </Main>
       </Container>
+      <Outlet />
     </div>
   )
 }
