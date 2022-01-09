@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 import { Container } from "components/Container";
 import { IconList } from "components/IconList";
@@ -10,7 +11,6 @@ import { MongoStories } from "components/MongoStories";
 import { LeftBarAdvertising } from "components/LeftBarAdvertising";
 import { CommentSection } from "components/CommentSection";
 import { Columns } from "components/Columns";
-import { ReadNext } from "components/ReadNext";
 import { CodeNewbie } from "components/CodeNewbie";
 import { RightbarHelp } from "components/RightBarHelp";
 import StickerPack from 'components/StickerPack'
@@ -31,7 +31,6 @@ function Home() {
           </Columns>
           <Columns>
             <CommentSection />
-            <ReadNext />
           </Columns>
           <Columns>
             <CodeNewbie />
@@ -40,8 +39,9 @@ function Home() {
           </Columns>
         </Main>
       </Container>
+      <Outlet />
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home
