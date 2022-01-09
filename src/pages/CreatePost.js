@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { Navbar } from 'components/Navbar'
-import {Footer} from 'components/Footer'
 import NavBarCreate from 'components/NavBarCreate'
 import BottomButtonsCreate from 'components/BottomButtonsCreate'
+import CreateInputs from 'components/CreateInputs'
 function CreatePost() {
     return (
         <div class="bg-[#efefef]">
-            <NavBarCreate/>
-            <BottomButtonsCreate/>
+            <NavBarCreate />
+            <CreateInputs />
+            <BottomButtonsCreate />
         </div>
     )
 }

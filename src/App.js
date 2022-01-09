@@ -16,7 +16,7 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/" element={<Home />} />
@@ -24,7 +24,7 @@ const App = () => {
           <Route path="/Search" element={<Search />} />
           <Route path="/CreatePost" element={<CreatePost />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </>
   );

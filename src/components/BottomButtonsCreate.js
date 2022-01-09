@@ -2,7 +2,7 @@ import React from 'react'
 
 function BottomButtonsCreate() {
     return (
-        <div class="inline-flex ml-96">
+        <div class="inline-flex ml-96 my-4">
             <div class="bg-[#3b49df] text-[#f9f9f9] px-4 py-2 rounded-lg hover:bg-[#323ebe] font-bold m-1">
                 <button>Publish</button>
             </div>
