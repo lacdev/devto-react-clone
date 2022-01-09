@@ -1,15 +1,8 @@
 import { format, formatDistance } from 'date-fns'
 
-const formatDate = (date) => {
-  const presentDay = new Date()
+const formatDate = (date) =>
+  formatDistance(date, new Date(), { addSuffix: true })
 
-  const formattedDate = formatDistance(date, presentDay, { addSuffix: true })
-  return formattedDate
-}
-
-const formatCreationDate = (date) => {
-  const formattedDate = format(date, 'MMM d')
-  return formattedDate
-}
+const formatCreationDate = (date) => format(date, 'MMM d')
 
 export { formatDate, formatCreationDate }
