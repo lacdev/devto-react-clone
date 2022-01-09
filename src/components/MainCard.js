@@ -1,5 +1,11 @@
 import { formatDate, formatCreationDate } from 'utils/dates'
 import { generateRandomReactions } from 'utils/reactions'
+import { NavLink, useLocation } from 'react-router-dom'
+
+function QueryNavLink({ to, ...props }) {
+  let location = useLocation()
+  return <NavLink to={to + location.search} {...props} />
+}
 
 const MainCard = () => {
   const classes = {
@@ -36,9 +42,12 @@ const MainCard = () => {
               new Date(2022, 0, 1, 0, 0, 15)
             )})`}
           </h3>
-          <h1 className="font-bold text-3xl mt-2 cursor-pointer hover:text-indigo-700 mb-2">
-            Maximize your Tailwind efficiency by using these resources
-          </h1>
+          <QueryNavLink to={`/post/123`}>
+            <h1 className="font-bold text-3xl mt-2 cursor-pointer hover:text-indigo-700 mb-2">
+              Maximize your Tailwind efficiency by using these resources
+            </h1>
+          </QueryNavLink>
+
           <div className="flex">
             <a href="/#" className={classes.tagLink}>
               #TailwindCSS

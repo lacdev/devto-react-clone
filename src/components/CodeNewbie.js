@@ -1,7 +1,7 @@
 import React from 'react'
 
 //css styles
-const container = 'flex-col w-full h-auto rounded-lg flex-col  bg-gray-50  p-4'
+const container = 'flex-col w-96 h-auto rounded-lg flex-col  bg-gray-50  p-4'
 const banner = ' bg-cover rounded-lg mb-3'
 const tittle = 'font-bold text-2xl mb-2'
 const meta = 'font-bold text-md cursor-pointer'
