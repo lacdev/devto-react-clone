@@ -1,6 +1,5 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-
 import { Container } from 'components/Container'
 import { IconList } from 'components/IconList'
 import { OtherList } from 'components/OtherList'
@@ -9,10 +8,10 @@ import { MongoBanner } from 'components/MongoBanner'
 import { Main } from 'components/Main'
 import { MongoStories } from 'components/MongoStories'
 import { LeftBarAdvertising } from 'components/LeftBarAdvertising'
-import { CommentSection } from 'components/CommentSection'
 import { Columns } from 'components/Columns'
 import { CodeNewbie } from 'components/CodeNewbie'
 import { RightbarHelp } from 'components/RightBarHelp'
+import { MainCard } from 'components/MainCard'
 
 function Home() {
   return (
@@ -27,7 +26,7 @@ function Home() {
             <LeftBarAdvertising />
           </Columns>
           <Columns>
-            <CommentSection />
+            <MainCard />
           </Columns>
           <Columns>
             <CodeNewbie />
