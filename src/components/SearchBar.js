@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
 //CSS properties
 const cssInput =
-  " ml-6 my-2 border px-2 relative w-72 h-10 rounded-md   bg-white active:border-indigo-600";
-const cssIcon = " absolute translate-x-[350px]  cursor-pointer ";
+  ' ml-6 my-2 border px-2 relative w-72 h-10 rounded-md   bg-white active:border-indigo-600'
+const cssIcon = ' absolute translate-x-[350px]  cursor-pointer '
 
   
 
@@ -24,5 +24,5 @@ export const SearchBar = () => {
         </svg>
       </span>
     </>
-  );
-};
+  )
+}
