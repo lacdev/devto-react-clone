@@ -1,16 +1,23 @@
-import React from 'react'
+import React from "react";
+import { useState } from "react";
 
 //CSS properties
 const cssInput =
-  ' ml-6 my-2 border px-2 relative w-72 h-10 rounded-md   bg-white active:border-indigo-600'
-const cssIcon = ' absolute translate-x-[350px]  cursor-pointer '
-
-  
+  " ml-6 my-2 border px-2 relative w-72 h-10 rounded-md   bg-white active:border-indigo-600";
+const cssIcon = " absolute translate-x-[350px]  cursor-pointer ";
 
 export const SearchBar = () => {
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <>
-      <input className={cssInput} type="text" placeholder="Search..." />
+      <input
+        className={cssInput}
+        type="text"
+        placeholder="Search..."
+        onChange={(event) => {
+          setSearchTerm(event.target.value);
+        }}
+      />
       <span className={cssIcon}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -24,5 +31,5 @@ export const SearchBar = () => {
         </svg>
       </span>
     </>
-  )
-}
+  );
+};

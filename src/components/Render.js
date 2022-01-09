@@ -1,29 +1,37 @@
+import { useState } from "react";
 import Data from "../mock-data.json";
 
 //css styles
-const container = "text-align border rounded-md m-2 w-[750px] p-5"
-  
-
-
-
-const post = Data.map(({ id, first_name, post_title }) => (
-  <div className={container}>
-    <p>id:{id}</p>
-    <p>nombre:{first_name}</p>
-    <p>titulo:{post_title}</p>
-  </div>
-));
-
-function Input (){
-  return (
-    <div>
-      <input placeholder="Enter Post Title"/>
-    </div>
-  )
-}
+const user = "border rounded-md items-center";
+const input = "border rounded-md p-2";
 
 export const Render = () => {
-  return <> {post}</>;
+  const [searchTerm, setSearchTerm] = useState("");
+  return (
+    <>
+      <input
+        type="text"
+        placeholder="Search..."
+        className={input}
+        onChange={(event) => {
+          setSearchTerm(event.target.value);
+        }}
+      />
+      {Data.filter((val) => {
+        if (searchTerm === "") {
+          return val;
+        } else if (
+          val.first_name.toLowerCase().includes(searchTerm.toLowerCase())
+        ) {
+          return val;
+        }
+      }).map((val, key) => {
+        return (
+          <div className={user} key={key}>
+            <p>{val.first_name}</p>
+          </div>
+        );
+      })}
+    </>
+  );
 };
-
-export {Input}
