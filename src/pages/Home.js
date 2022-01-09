@@ -1,18 +1,17 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-
-import { Container } from "components/Container";
-import { IconList } from "components/IconList";
-import { OtherList } from "components/OtherList";
-import { SocialMediaIcons } from "components/SocialMediaIcons";
-import { MongoBanner } from "components/MongoBanner";
-import { Main } from "components/Main";
-import { MongoStories } from "components/MongoStories";
-import { LeftBarAdvertising } from "components/LeftBarAdvertising";
-import { CommentSection } from "components/CommentSection";
-import { Columns } from "components/Columns";
-import { CodeNewbie } from "components/CodeNewbie";
-import { RightbarHelp } from "components/RightBarHelp";
+import { Container } from 'components/Container'
+import { IconList } from 'components/IconList'
+import { OtherList } from 'components/OtherList'
+import { SocialMediaIcons } from 'components/SocialMediaIcons'
+import { MongoBanner } from 'components/MongoBanner'
+import { Main } from 'components/Main'
+import { MongoStories } from 'components/MongoStories'
+import { LeftBarAdvertising } from 'components/LeftBarAdvertising'
+import { Columns } from 'components/Columns'
+import { CodeNewbie } from 'components/CodeNewbie'
+import { RightbarHelp } from 'components/RightBarHelp'
+import { MainCard } from 'components/MainCard'
 import StickerPack from 'components/StickerPack'
 import Listings from 'components/Listings'
 
@@ -30,7 +29,7 @@ function Home() {
             <LeftBarAdvertising />
           </Columns>
           <Columns>
-            <CommentSection />
+            <MainCard />
           </Columns>
           <Columns>
             <CodeNewbie />

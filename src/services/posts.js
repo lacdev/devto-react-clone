@@ -1,9 +1,9 @@
 import { BASE_URL } from '../utils/constants'
 
-const USERS_PATH = 'users.json'
+const POSTS_PATH = 'posts'
 
-const createUser = async (data) => {
-  const response = await fetch(`${BASE_URL}${USERS_PATH}`, {
+const createPost = async (data) => {
+  const response = await fetch(`${BASE_URL}${POSTS_PATH}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -13,18 +13,18 @@ const createUser = async (data) => {
   return await response.json()
 }
 
-const getUsers = async () => {
-  const response = await fetch(`${BASE_URL}${USERS_PATH}`)
+const getPosts = async () => {
+  const response = await fetch(`${BASE_URL}${POSTS_PATH}`)
   return await response.json()
 }
 
-const getUser = async (id) => {
-  const response = await fetch(`${BASE_URL}users/${id}.json`)
+const getPost = async (id) => {
+  const response = await fetch(`${BASE_URL}${POSTS_PATH}/${id}`)
   return await response.json()
 }
 
-const updateUser = async (id, data) => {
-  const response = await fetch(`${BASE_URL}users/${id}.json`, {
+const updatePost = async (id, data) => {
+  const response = await fetch(`${BASE_URL}${POSTS_PATH}/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -34,10 +34,10 @@ const updateUser = async (id, data) => {
   return await response.json()
 }
 
-const deleteUser = async (id) => {
-  return await fetch(`${BASE_URL}users/${id}.json`, {
+const deletePost = async (id) => {
+  return await fetch(`${BASE_URL}${POSTS_PATH}/${id}`, {
     method: 'DELETE',
   })
 }
 
-export { createUser, getUsers, getUser, updateUser, deleteUser }
+export { createPost, getPosts, getPost, updatePost, deletePost }
