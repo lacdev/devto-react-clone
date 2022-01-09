@@ -2,6 +2,8 @@ import React from 'react'
 import { Columns } from 'components/Columns'
 import { CommentSection } from './CommentSection'
 import { ReadNext } from './ReadNext'
+import PostProfile from 'components/PostProfile'
+import MoreProfile from 'components/MoreProfile'
 
 function OnePostRightBar() {
   const parent = 'grid row-end-2 h-max w-24 block mt-8 '
@@ -19,7 +21,7 @@ function OnePostRightBar() {
   const textspan = 'text-sm text-stone-600'
 
   return (
-    <div className="bg-slate-100">
+    <div className="bg-slate-100 inline-flex">
       <Columns>
         <aside className={parent}>
           <div className={barbox}>
@@ -100,7 +102,10 @@ function OnePostRightBar() {
         <CommentSection />
         <ReadNext />
       </Columns>
-      <Columns></Columns>
+      <Columns>
+        <PostProfile/>
+        <MoreProfile/>
+      </Columns>
     </div>
   )
 }
