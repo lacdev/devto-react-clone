@@ -1,16 +1,16 @@
 const MongoStories = () => {
   const classes = {
-    container: "flex-col w-80 h-auto rounded-lg flex-col  bg-gray-50 mt-3",
+    container: 'flex-col w-96 h-auto rounded-lg flex-col  bg-gray-50 mt-3',
     submitButton:
-      "px-8 mt-3 mx-2 mb-2 py-2 bg-indigo-600 font-semibold text-white text-center rounded-lg hover:bg-indigo-700",
+      'px-8 mt-3 mx-2 mb-2 py-2 bg-indigo-600 font-semibold text-white text-center rounded-lg hover:bg-indigo-700',
     seePostsButton:
-      "px-8 mt-3 mx-2 mb-2 py-2 bg-gray-200 font-semibold text-gray text-center rounded-lg hover:bg-gray-300",
-    stories: "font-bold text-xl",
+      'px-8 mt-3 mx-2 mb-2 py-2 bg-gray-200 font-semibold text-gray text-center rounded-lg hover:bg-gray-300',
+    stories: 'font-bold text-xl',
     articleDiv:
-      "px-3 py-4 border-b-2 border-slate-200 hover:bg-white hover:text-indigo-700 cursor-pointer",
+      'px-3 py-4 border-b-2 border-slate-200 hover:bg-white hover:text-indigo-700 cursor-pointer',
     storiesContainer:
-      "border-b-2 border-gray-200 px-3 py-3 cursor-pointer hover:text-indigo-600 ",
-  };
+      'border-b-2 border-gray-200 px-3 py-3 cursor-pointer hover:text-indigo-600 ',
+  }
 
   return (
     <div className={classes.container}>
@@ -53,7 +53,7 @@ const MongoStories = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export { MongoStories };
+export { MongoStories }

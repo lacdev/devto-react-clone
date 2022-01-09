@@ -1,3 +1,3 @@
-const BASE_URL = 'https://react-14g-default-rtdb.firebaseio.com/'
+const BASE_URL = 'https://devto-clone-backend.vercel.app/'
 
 export { BASE_URL }
