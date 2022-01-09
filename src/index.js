@@ -17,7 +17,7 @@ ReactDOM.render(
       <Routes>
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/" element={<Home />} />
-        <Route path="/post" element={<Post />} />
+        <Route path="/post/:postId" element={<Post />} />
         <Route path="/search" element={<Search />} />
         <Route path="/create" element={<CreatePost />} />
       </Routes>

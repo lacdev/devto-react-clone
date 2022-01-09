@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
 //CSS properties
-const container1 = "font-bold text-2xl rounded-t-lg mt-4 bg-gray-50";
-const container2 = " border-t rounded-b-lg  mb-4  bg-gray-50 p-2";
+const container1 = 'font-bold text-2xl rounded-t-lg mt-4 bg-gray-50'
+const container2 = ' border-t rounded-b-lg  mb-4  bg-gray-50 p-2'
 
 export const RightbarHelp = () => {
   return (
@@ -17,5 +17,5 @@ export const RightbarHelp = () => {
         <p className="text-slate-400  mx-2  hover:bg-[#fffff] ">1 comment</p>
       </div>
     </>
-  );
-};
+  )
+}
