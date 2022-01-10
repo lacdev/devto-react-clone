@@ -3,14 +3,16 @@ import { ResultsSideBar } from "components/ResultsSideBar";
 import { Container } from "components/Container";
 import { Columns } from "components/Columns";
 function Search() {
-   
-    return (
-        <div>
-             <h1>Application</h1>
-             <Link to={`/CreatePost/${userId}`}>CreatePost</Link>
-            <Footer/>
-        </div>
-    )
+  return (
+    <div>
+      <Container>
+        <Columns>
+          <ResultsSideBar />
+        </Columns>
+        <Columns></Columns>
+      </Container>
+    </div>
+  );
 }
 
 export default Search;
