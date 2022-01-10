@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import { formatDate, formatCreationDate } from 'utils/dates'
+import { formatCreationDate } from 'utils/dates'
 import {useParams} from 'react-router-dom'
 import {getPost} from 'services/posts'
-
+import ModalEdit from './ModalEdit'
 function OnePost({name , title, imageURL, content, tags}) {
     let params = useParams();
     console.log(params)
@@ -33,27 +33,50 @@ function OnePost({name , title, imageURL, content, tags}) {
 
     const classes = {
         tagLink:
-          'text-xs mr-1 px-2 py-1 border rounded-lg border-white hover:border-gray-400 hover:bg-gray-100',
+          'text-xs mr-1 px-2 py-1 border rounded-lg  text-center border-white hover:border-gray-400 hover:bg-gray-100',
         commentsButtons:
           'px-2 py-1 mr-3 text-sm rounded-md hover:bg-gray-100 bg-white hover:font-base',
+          avatarImage: 'w-16 h-16 mx-4 rounded-full cursor-pointer',
+          userName: 'font-semibold text-base',
       }
     return (
-   <div>
+   <div className='bg-white pb-3 w-auto h-auto'>
              <div className="rounded-lg border w-full bg-white shadow-sm mb-4">
                  <div className="rounded-lg">
                      <img alt="dev" src={renderData?.imageURL}></img>
                  </div>
              </div>
-            <h2 className="font-semibold text-base">{renderData?.name}</h2>
-              <h3 className="text-gray-600 text-sm"> Posted on 
-                 {`${formatCreationDate(new Date())} (${formatDate(
-                  new Date(2022, 0, 1, 0, 0, 15))})`}
-              </h3>
-            <h1 className="font-bold text-3xl mt-2 cursor-pointer hover:text-indigo-700 mb-2"> {title}</h1>
+             <div className="p-4 flex">
+                <div className={classes.avatarImage}>
+                   <img className="rounded-full" src={renderData?.avatar} alt="linus"></img>
+                  </div>
+                  <div className='flex flex-col'>
+                  <h2 className={classes.userName}>{renderData?.name}</h2>
+                  <h3 className="text-gray-600 text-sm"> {`Posted on ${formatCreationDate(renderData?.date)}`}</h3>
+                  </div>
+                  
+              </div>
+              
+           <div className='p-10'> 
+               <h1 className="font-bold text-3xl mt-2 cursor-pointer hover:text-indigo-700 mb-2 text-center"> {renderData?.title}</h1>
             <div className="flex">
-            <a href="/#" className={classes.tagLink}>{tags}</a>
-                </div>
-            <p className='text-lg break-words'>{renderData?.content}</p>
+            {renderData?.tags?.map((tag) => {
+              return (
+                <a href="#/" className={classes.tagLink}>
+                  {`#${tag}`}
+                </a>
+              )
+            })}
+          </div>
+            <p className='text-lg break-words text-justify'>{renderData?.content}</p>
+            </div>
+
+        <div className='flex m-3 px-1 py-2 place-content-end'>
+        <ModalEdit/>
+        <button className='bg-red-500 rounded-lg m-2 p-2 w-28 h-26 hover:bg-red-400 hover:font-bold'> Eliminar</button>
+        </div>
+        
+           
    </div>
        
     
