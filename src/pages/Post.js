@@ -19,8 +19,8 @@ function Post() {
         <ReadNext />
       </Columns>
       <Columns>
-        <PostProfile/>
-        <MoreProfile/>
+        <PostProfile />
+        <MoreProfile />
       </Columns>
     </div>
   )
