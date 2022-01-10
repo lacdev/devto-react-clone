@@ -57,7 +57,7 @@ function ModalEdit() {
                   {/*footer*/}
                   <div className={classes.modalfooter} >
                     <button
-                      className={classes.btncancel}
+                      className={classes.closebtn}
                       type="button"
                       onClick={() => setModal(false)}
                     >
