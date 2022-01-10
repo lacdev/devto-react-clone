@@ -1,5 +1,4 @@
-import React, { Component, useState } from 'react';
-import { render } from 'react-dom';
+import React from 'react';
 import Select from 'react-select'
 
 const options = [
