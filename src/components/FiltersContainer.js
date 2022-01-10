@@ -8,7 +8,7 @@ const FiltersContainer = () => {
   //If any button is active, increase font-weight
   //When Top gets active for the first time, week sets to active
   return (
-    <div className="mb-4 flex justify-between">
+    <div className="mb-4 flex justify-between mt-4">
       <div>
         <FilterButton>Relevant</FilterButton>
         <FilterButton>Latest</FilterButton>
