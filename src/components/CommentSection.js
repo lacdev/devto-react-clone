@@ -39,11 +39,14 @@ const CommentSection = () => {
             <div className="flex mt-3">
               <button className={classes.commentsButtons}>
                 <span className="flex items-center">
-                  <img
-                    className="w-4 h-4 mr-2"
-                    src="https://cdn-icons.flaticon.com/png/512/2938/premium/2938590.png?token=exp=1641623580~hmac=0ccb0c42b7f6fc61e9b3d67fd5600ce5"
-                    alt="like icon"
-                  ></img>
+                  <svg
+                    class="crayons-icon"
+                    width="24"
+                    height="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z"></path>
+                  </svg>
                   3 Likes
                 </span>
               </button>
@@ -81,11 +84,14 @@ const CommentSection = () => {
             <div className="flex mt-3">
               <button className={classes.commentsButtons}>
                 <span className="flex items-center">
-                  <img
-                    className="w-4 h-4 mr-2"
-                    src="https://cdn-icons.flaticon.com/png/512/2938/premium/2938590.png?token=exp=1641623580~hmac=0ccb0c42b7f6fc61e9b3d67fd5600ce5"
-                    alt="like icon"
-                  ></img>
+                  <svg
+                    class="crayons-icon"
+                    width="24"
+                    height="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z"></path>
+                  </svg>
                   5 Likes
                 </span>
               </button>
