@@ -3,15 +3,7 @@ import { BASE_URL } from '../utils/constants'
 const POSTS_PATH = 'posts'
 
 const createPost = async (data) => {
-  // const response = await fetch(`${BASE_URL}${POSTS_PATH}`, {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  //   body: JSON.stringify(data),
-  // })
-  // return await response.json()
-  const response = await fetch(`${BASE_URL}`, {
+  const response = await fetch(`${BASE_URL}${POSTS_PATH}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -19,6 +11,14 @@ const createPost = async (data) => {
     body: JSON.stringify(data),
   })
   return await response.json()
+  // const response = await fetch(`${BASE_URL}`, {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify(data),
+  // })
+  // return await response.json()
 }
 
 const getPosts = async () => {

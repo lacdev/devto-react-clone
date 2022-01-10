@@ -16,6 +16,6 @@ const avatar = [
     "https://avatars.githubusercontent.com/u/26834658?v=4",   
 ]
 
-const getRandomAvatar = () => Math.floor(Math.random() * avatar.length)
+const getRandomAvatar = () => avatar[Math.floor(Math.random() * avatar.length)]
 
 export { getRandomAvatar }

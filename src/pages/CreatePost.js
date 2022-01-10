@@ -20,7 +20,7 @@ function CreatePost() {
     
     const Publish = async (event) => {
         event.preventDefault();
-        const date = new Date;
+        const date = new Date();
         const reactions = generateRandomReactions();
         const avatar = getRandomAvatar();
         
@@ -36,7 +36,7 @@ function CreatePost() {
                 date
             };
             console.log(data)
-            //await createPost(data);
+            await createPost(data);
         } catch (error) {
             console.error(error.message);
         }
@@ -65,10 +65,6 @@ function CreatePost() {
             default:
                 break;
         }
-
-        // if(name === "title") {
-        //     setTitle(value)
-        // }
     }
 
     return (
