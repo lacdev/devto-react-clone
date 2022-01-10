@@ -45,15 +45,37 @@ function ModalEdit() {
                     </button>
                   </div>
                   {/*body*/}
-                  <div className={classes.modalbodyposition} >
-   <p className={classes.modalbody} >
-                      I always felt like I could do anything. That’s the main
-                      thing people are controlled by! Thoughts- their perception
-                      of themselves! They're slowed down by their perception of
-                      themselves. If you're taught you can’t do anything, you
-                      won’t do anything. I was taught I could do everything.
-                    </p>
+                  <form className={classes.modalbodyposition} >
+                   <div className='grid grid-cols-3 gap-6'>
+                     <div className='col-span-6'>
+                       <label for='imagenURL' className='block text-sm font-medium text-gray-700'>
+                         Reemplaza la Imagen
+                       </label>
+                       <div className='mt-1 flex rounded-md shadow-sm'>
+                         <span className='inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm'>
+                          http://
+                         </span>
+                         <input type="url" name="imagenURL" className='mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'/>
+                       </div>
+                     </div>
+                     <div className='col-span-6'>
+                       <label for="title" className='block text-sm font-medium text-gray-700'>
+                         Modifica el Titulo
+                       </label>
+                       <input type="text" name="title" className='mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md' />
+                     </div>
+                     <div>
+                       <label for="content" className='block text-sm font-medium text-gray-700' >
+                        Revisa el contenido 
+                       </label>
+                       <div className='mt-1'>
+                        <textarea name="content" rows="3" className='shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md' >
+                        </textarea>
+                       </div>
+                     </div>
                   </div>
+
+                </form>
                   {/*footer*/}
                   <div className={classes.modalfooter} >
                     <button
@@ -61,14 +83,13 @@ function ModalEdit() {
                       type="button"
                       onClick={() => setModal(false)}
                     >
-                      Close
+                      Cancelar
                     </button>
                     <button
                       className={classes.savebtn}
-                      type="button"
-                      onClick={() => setModal(false)}
-                    >
-                      Save Changes
+                       type="button" 
+                       onClick={() => setModal(false)} >
+                    Guardar Cambios
                     </button>
                   </div>
                 </div>
