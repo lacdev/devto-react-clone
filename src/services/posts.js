@@ -2,6 +2,8 @@ import { BASE_URL } from '../utils/constants'
 
 const POSTS_PATH = 'posts'
 
+//${BASE_URL}${POSTS_PATH}
+
 const createPost = async (data) => {
   const response = await fetch(`${BASE_URL}${POSTS_PATH}`, {
     method: 'POST',
