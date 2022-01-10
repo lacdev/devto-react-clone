@@ -3,7 +3,7 @@ import Select from 'react-select'
 import Selector from './Selector'
 
 
-function CreateInputs({name,title, imageURL, content, tags, reactions, avatar, setValue}) {
+function CreateInputs({name,title, imageURL, content, tags, reactions, avatar, setValue, setTagValues}) {
     // const options = [
     //     {value:"Javascript", label:"Javascript"},
     //     {value:"ReactJS", label:"ReactJS"},
@@ -34,7 +34,7 @@ function CreateInputs({name,title, imageURL, content, tags, reactions, avatar, s
                 {/* <div class="text-xl mt-4">
                     <Select isMulti name="tags" options={options} className="basic-multi-select" classNamePrefix="select" placeholder="Select up to four tags..."/>
                 </div> */}
-                    <Selector/>
+                    <Selector setTagValues={setTagValues} tags={tags} />
                 <div>
                     <textarea class="resize rounded-md text-xl min-h-[600px] min-w-full mt-10" type="text" placeholder='Write you post content here...' name="content" value={content} onChange={setValue}></textarea>
                 </div>

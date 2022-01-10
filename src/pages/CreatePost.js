@@ -23,6 +23,9 @@ function CreatePost() {
         const date = new Date();
         const reactions = generateRandomReactions();
         const avatar = getRandomAvatar();
+        const newTags = tags.map((tag) =>{
+            return tag.value
+        })
         
         try {
             const data = {
@@ -30,7 +33,7 @@ function CreatePost() {
                 title,
                 imageURL,
                 content,
-                tags,
+                tags : newTags,
                 reactions,
                 avatar,
                 date
@@ -56,8 +59,6 @@ function CreatePost() {
                 break;
             case "content": setContent(value);
                 break;
-            case "tags": setTags(value);
-                break;
             case "reactions": setReaction(value);
                 break;
             case "avatar": setAvatar(value);
@@ -67,11 +68,16 @@ function CreatePost() {
         }
     }
 
+    const setTagValues = (tagOptions) => {
+        setTags(tagOptions)
+    }
+
     return (
         <div class="bg-[#efefef]">
             <NavBarCreate />
-            <CreateInputs setValue={setValues} name={name} title={title} imageURL={imageURL} content={content} tags={tags} reactions={reactions} avatar={avatar}/>
+            <CreateInputs setTagValues={setTagValues} setValue={setValues} name={name} title={title} imageURL={imageURL} content={content} tags={tags} reactions={reactions} avatar={avatar}/>
             <BottomButtonsCreate onPublishClick={Publish} />
+            
         </div>
     )
 }

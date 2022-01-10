@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { render } from 'react-dom';
 import Select from 'react-select'
 
@@ -17,41 +17,24 @@ const options = [
     {value:"Linux", label:"Linux"},
 ]
 
-class App extends React.Component {
-    state = {
-        selectedOptions: [],
-    }
-
-    handleSelectedOptions = (selectedOptions) => { 		
-        let values = []; 		
-        selectedOptions.map((v) => values.push(v.value));  		
-        this.setState((state) => ({ 			
-            ...state, 			
-            tags: values 		
-        }))
-        console.log.selectedOptions; 	
-    };
-
-    handleChange = (selectedOptions) => {
-        this.setState({ selectedOptions });
-        }
+const Selector = ({tags, setTagValues}) => {
     
-        render() {
-        const { selectedOptions } = this.state;
+    const handleChange = (selectedOptions) => {
+        if(selectedOptions.length > 4) {
+            return
+        }
+        setTagValues(selectedOptions)
+        }
     
         return (
-            <React.Fragment>
             <Select
                 isMulti
-                value={selectedOptions}
-                onChange={this.handleChange}
+                value={tags}
+                onChange={handleChange}
                 options={options}
             />
-            {selectedOptions.map(o => <p>{o.value}</p>)}
-            </React.Fragment>
         );
-        }
     }
-    
-    render(<App />, document.getElementById('root'));
+
+export default Selector
 
