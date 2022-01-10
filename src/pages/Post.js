@@ -1,15 +1,27 @@
 import React from 'react'
 
-import { Navbar } from 'components/Navbar'
 import { OnePostRightBar } from 'components/OnePostRightBar'
-import { Container } from 'components/Container'
+import { Columns } from 'components/Columns'
+import { CommentSection } from 'components/CommentSection'
+import { ReadNext } from 'components/ReadNext'
+import  OnePost  from 'components/OnePost'
+import PostProfile from 'components/PostProfile'
+import MoreProfile from 'components/MoreProfile'
 function Post() {
   return (
-    <div>
-      <Navbar />
-      <Container>
+    <div className="container flex mx-auto mt-8 bg-slate-100">
+      <Columns>
         <OnePostRightBar />
-      </Container>
+      </Columns>
+      <Columns>
+        <OnePost />
+        <CommentSection />
+        <ReadNext />
+      </Columns>
+      <Columns>
+        <PostProfile />
+        <MoreProfile />
+      </Columns>
     </div>
   )
 }

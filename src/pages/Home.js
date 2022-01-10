@@ -10,8 +10,10 @@ import { MongoStories } from 'components/MongoStories'
 import { LeftBarAdvertising } from 'components/LeftBarAdvertising'
 import { Columns } from 'components/Columns'
 import { CodeNewbie } from 'components/CodeNewbie'
-import { RightbarHelp } from 'components/RightBarHelp'
-import { MainCard } from 'components/MainCard'
+import StickerPack from 'components/StickerPack'
+import Listings from 'components/Listings'
+import { CardsContainer } from 'components/MainCard'
+import { FiltersContainer } from 'components/FiltersContainer'
 
 function Home() {
   return (
@@ -23,15 +25,17 @@ function Home() {
             <IconList />
             <OtherList />
             <SocialMediaIcons />
+            <StickerPack />
             <LeftBarAdvertising />
           </Columns>
           <Columns>
-            <MainCard />
+            <FiltersContainer />
+            <CardsContainer />
           </Columns>
           <Columns>
             <CodeNewbie />
             <MongoStories />
-            <RightbarHelp />
+            <Listings />
           </Columns>
         </Main>
       </Container>

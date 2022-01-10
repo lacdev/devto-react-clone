@@ -1,6 +1,4 @@
 import React from "react";
-import { Navbar } from "components/Navbar";
-import { Footer } from "components/Footer";
 import { ResultsSideBar } from "components/ResultsSideBar";
 import { Container } from "components/Container";
 import { Columns } from "components/Columns";
