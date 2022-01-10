@@ -13,6 +13,7 @@ import { CodeNewbie } from 'components/CodeNewbie'
 import StickerPack from 'components/StickerPack'
 import Listings from 'components/Listings'
 import { CardsContainer } from 'components/MainCard'
+import { FiltersContainer } from 'components/FiltersContainer'
 
 function Home() {
   return (
@@ -28,6 +29,7 @@ function Home() {
             <LeftBarAdvertising />
           </Columns>
           <Columns>
+            <FiltersContainer />
             <CardsContainer />
           </Columns>
           <Columns>
