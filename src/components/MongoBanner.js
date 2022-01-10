@@ -1,4 +1,7 @@
+import { useState } from 'react'
+
 const MongoBanner = () => {
+  const [isHidden, setisHidden] = useState(false)
   const classes = {
     enterButton:
       'my-6 px-6 py-4 border-2 text-2xl font-bold border-black  text-black bg-indigo-100',
@@ -14,10 +17,16 @@ const MongoBanner = () => {
     plusSign: 'text-center text-7xl font-bold',
   }
 
+  const handleClick = () => setisHidden(true)
+
+  if (isHidden) return null
+
   return (
     <>
       <div className={classes.bannerContainer}>
-        <button className={classes.closeButton}>X</button>
+        <button className={classes.closeButton} onClick={handleClick}>
+          X
+        </button>
         <div className="flex-col">
           <h4 className={classes.dateText}>Dec 13 - Jan 13, 2022</h4>
           <h1 className={classes.bannerHeroText}>
