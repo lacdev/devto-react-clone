@@ -33,7 +33,7 @@ function ModalEdit() {
                   {/*header*/}
                   <div className={classes.modalfix} >
                     <h3 className={classes.modaltitle} >
-                      Modal Title
+                      Edita tu Post
                     </h3>
                     <button
                       className={classes.modalbtncancel}
@@ -46,7 +46,7 @@ function ModalEdit() {
                   </div>
                   {/*body*/}
                   <div className={classes.modalbodyposition} >
-                    <p className={classes.modalbody} >
+   <p className={classes.modalbody} >
                       I always felt like I could do anything. That’s the main
                       thing people are controlled by! Thoughts- their perception
                       of themselves! They're slowed down by their perception of
