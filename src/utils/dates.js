@@ -3,7 +3,10 @@ import { format, formatDistance } from 'date-fns'
 const formatDate = (date) => {
   try {
     const result = new Date(date)
-    return formatDistance(result, new Date(), { addSuffix: true })
+    return formatDistance(result, new Date(), {
+      addSuffix: true,
+      includeSeconds: true,
+    })
   } catch (error) {
     console.log(error)
     return ''
@@ -12,7 +15,7 @@ const formatDate = (date) => {
 
 const formatCreationDate = (date) => {
   try {
-    var result = new Date(date)
+    const result = new Date(date)
     return format(result, 'MMM d')
   } catch (error) {
     console.log(error)
