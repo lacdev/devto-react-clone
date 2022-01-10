@@ -16,8 +16,9 @@ function OnePost({name , title, imageURL, content, tags}) {
               setIsLoading(true)
               const response = await getPost(params.postId)
               console.log(response)
-              setRenderData(response.data)
-              setIsLoading(false)
+              console.log(response.data)
+              setRenderData(response.data.posts)
+              console.log(renderData)
             } catch (error) {
               console.log(error)
               setIsError(true)
