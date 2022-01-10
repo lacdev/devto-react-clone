@@ -1,9 +1,9 @@
 import React from 'react'
 
-function BottomButtonsCreate() {
+function BottomButtonsCreate({onPublishClick}) {
     return (
         <div class="inline-flex ml-96 my-4">
-            <div class="bg-[#3b49df] text-[#f9f9f9] px-4 py-2 rounded-lg hover:bg-[#323ebe] font-bold m-1">
+            <div onClick={onPublishClick} type="submit" class="bg-[#3b49df] text-[#f9f9f9] px-4 py-2 rounded-lg hover:bg-[#323ebe] font-bold m-1">
                 <button>Publish</button>
             </div>
             <div class="bg-[#d6d6d7] text-[#3d3d3d] px-4 py-2 rounded-lg hover:bg-[#bdbdbd] hover:text-[#090909] font-bold m-1">
