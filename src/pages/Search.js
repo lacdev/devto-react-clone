@@ -3,7 +3,7 @@ import { ResultsSideBar } from "components/ResultsSideBar";
 import { Container } from "components/Container";
 import { Columns } from "components/Columns";
 import { SearchBar } from "components/SearchBar";
-import { Render } from "components/Render";
+import { Users } from "components/SearchPageCard";
 
 function Search() {
   return (
@@ -13,7 +13,7 @@ function Search() {
           <ResultsSideBar />
         </Columns>
         <Columns>
-          <Render />
+          <Users />
         </Columns>
       </Container>
     </div>
