@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Container } from 'components/Container'
 import { IconList } from 'components/IconList'
@@ -13,6 +14,7 @@ import { CodeNewbie } from 'components/CodeNewbie'
 import { MainCard } from 'components/MainCard'
 import StickerPack from 'components/StickerPack'
 import Listings from 'components/Listings'
+import { CardsContainer } from 'components/MainCard'
 
 function Home() {
   return (
@@ -28,7 +30,7 @@ function Home() {
             <LeftBarAdvertising />
           </Columns>
           <Columns>
-            <MainCard />
+            <CardsContainer />
           </Columns>
           <Columns>
             <CodeNewbie />
