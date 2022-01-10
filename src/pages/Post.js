@@ -4,7 +4,7 @@ import { OnePostRightBar } from 'components/OnePostRightBar'
 import { Columns } from 'components/Columns'
 import { CommentSection } from 'components/CommentSection'
 import { ReadNext } from 'components/ReadNext'
-import { MainCard } from 'components/MainCard'
+import  OnePost  from 'components/OnePost'
 import PostProfile from 'components/PostProfile'
 import MoreProfile from 'components/MoreProfile'
 function Post() {
@@ -14,7 +14,7 @@ function Post() {
         <OnePostRightBar />
       </Columns>
       <Columns>
-        <MainCard />
+        <OnePost />
         <CommentSection />
         <ReadNext />
       </Columns>
