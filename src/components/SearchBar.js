@@ -1,5 +1,7 @@
+import { data } from "autoprefixer";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { axios } from "axios";
 import { getPosts } from "services/posts";
 import { Loader } from "./Loader";
 
@@ -10,13 +12,52 @@ const cssIcon =
   " absolute -translate-x-[30px]  translate-y-[15px] cursor-pointer ";
 const form = "relative display-inline";
 
+//Onclick
+// const HandleClick = () => {
+//   const [posts, setPosts] = useState([]);
+//   const [isLoading, setIsLoading] = useState(false);
+//   const [isError, setIsError] = useState(false);
+
+//   useEffect(() => {
+//     const get = async () => {
+//       try {
+//         setIsLoading(true);
+//         const response = await getPosts();
+//         setPosts(response.data.posts);
+//         setIsLoading(false);
+//       } catch (error) {
+//         console.log(error);
+//         setIsError(true);
+//       }
+//     };
+//     get();
+//   }, []);
+
+// const [data, setData] = useState(null);
+// const [error, setError] = useState(null);
+// const [loading, setLoading] = useState(true);
+// useEffect(() => {
+//   axios(getPosts)
+//     .then((response) => {
+//       setData(response.data);
+//     })
+//     .catch((error) => {
+//       console.error("error fetching data", error);
+//       setError(error);
+//     })
+//     .finally(() => {
+//       setLoading(false);
+//     });
+// }, []);
+//};
+
 //Onkeydown
 export const SearchBar = () => {
   const navigate = useNavigate("");
   const [searchTerm, setSearchTerm] = useState("");
 
   const onSubmitForm = (event) => {
-   //Prevenimos la recarga del navegador
+    //Prevenimos la recarga del navegador
     event.preventDefault();
     if (searchTerm === "") return;
     //Navegamos a la pagina de resultados
