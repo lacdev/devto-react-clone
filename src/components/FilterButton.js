@@ -1,7 +1,9 @@
 const FilterButton = ({ children, onFilterClick, id, isActive }) => {
   const classes = {
-    filterButton: `p-3 text-base font-slate-200 hover:bg-white rounded-lg hover:text-indigo-500`,
-    activeFilterButton: 'bg-black',
+    filterButton:
+      'p-3 text-base font-slate-200 hover:bg-white rounded-lg hover:text-indigo-500',
+    activeFilterButton:
+      'p-3 text-semibold font-black hover:bg-white rounded-lg hover:text-indigo-500',
   }
 
   const buttonClassName = isActive

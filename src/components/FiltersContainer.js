@@ -1,6 +1,4 @@
 import { FilterButton } from './FilterButton'
-import classnames from 'classnames'
-import { NavLink, Outlet, useSearchParams } from 'react-router-dom'
 
 const FiltersContainer = ({ onFilterClick, selectedFilter }) => {
   //TODO

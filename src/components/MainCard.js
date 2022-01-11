@@ -1,5 +1,5 @@
 import { formatDate, formatCreationDate } from 'utils/dates'
-import { NavLink, useLocation, useSearchParams } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { getPosts } from 'services/posts'
 import { useState, useEffect } from 'react'
 import { Loader } from './Loader'
@@ -16,7 +16,6 @@ const CardsContainer = () => {
   const [isError, setIsError] = useState(false)
   const [selectedFilter, setSelectedFilter] = useState('')
   const demoArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  let params = useSearchParams()
 
   useEffect(() => {
     const get = async () => {
