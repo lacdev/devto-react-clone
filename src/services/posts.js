@@ -15,8 +15,14 @@ const createPost = async (data) => {
   return await response.json()
 }
 
-const getPosts = async () => {
-  const response = await fetch(`${BASE_URL}${POSTS_PATH}`)
+const getPosts = async (filter = null) => {
+  let requestURL = `${BASE_URL}${POSTS_PATH}`
+
+  if (filter !== null) {
+    requestURL = `${BASE_URL}${POSTS_PATH}?date=${filter}`
+  }
+
+  const response = await fetch(requestURL)
   return await response.json()
 }
 
