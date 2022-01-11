@@ -15,8 +15,14 @@ const createPost = async (data) => {
   return await response.json()
 }
 
-const getPosts = async () => {
-  const response = await fetch(`${BASE_URL}${POSTS_PATH}`)
+const getPosts = async (filter = null) => {
+  let requestURL = `${BASE_URL}${POSTS_PATH}`
+
+  if (filter !== null) {
+    requestURL = `${BASE_URL}${POSTS_PATH}?date=${filter}`
+  }
+
+  const response = await fetch(requestURL)
   return await response.json()
 }
 
@@ -27,7 +33,7 @@ const getPost = async (id) => {
 
 const updatePost = async (id, data) => {
   const response = await fetch(`${BASE_URL}${POSTS_PATH}/${id}`, {
-    method: 'PATCH',
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -35,6 +41,17 @@ const updatePost = async (id, data) => {
   })
   return await response.json()
 }
+
+// const updatePost = async (id, data) => {
+//   const response = await fetch(`http://localhost:8000/posts/${id}`, {
+//     method: 'PUT',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(data),
+//   })
+//   return await response.json()
+// }
 
 const deletePost = async (id) => {
   return await fetch(`${BASE_URL}${POSTS_PATH}/${id}`, {

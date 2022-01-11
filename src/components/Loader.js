@@ -1,12 +1,10 @@
 import ContentLoader from 'react-content-loader'
-import { Columns } from './Columns'
-import { Container } from './Container'
 
 const Loader = (props) => (
   <ContentLoader
     speed={2}
     width={500}
-    height={520}
+    minHeight={520}
     viewBox="0 0 640 520"
     backgroundColor="#d1d1d1"
     foregroundColor="#daadff"

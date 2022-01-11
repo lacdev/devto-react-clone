@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { getPosts } from 'services/posts'
 import { useState, useEffect } from 'react'
 import { Loader } from './Loader'
+import { FiltersContainer } from 'components/FiltersContainer'
 
 function QueryNavLink({ to, ...props }) {
   let location = useLocation()
@@ -13,13 +14,14 @@ const CardsContainer = () => {
   const [posts, setPosts] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
+  const [selectedFilter, setSelectedFilter] = useState('')
   const demoArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
   useEffect(() => {
     const get = async () => {
       try {
         setIsLoading(true)
-        const response = await getPosts()
+        const response = await getPosts(selectedFilter)
         setPosts(response.data.posts)
         setIsLoading(false)
       } catch (error) {
@@ -28,7 +30,12 @@ const CardsContainer = () => {
       }
     }
     get()
-  }, [])
+  }, [selectedFilter])
+
+  const handleFilterClick = (event) => {
+    const { id } = event.target
+    setSelectedFilter(id)
+  }
 
   if (!isLoading && isError)
     return (
@@ -44,6 +51,10 @@ const CardsContainer = () => {
 
   return (
     <div>
+      <FiltersContainer
+        onFilterClick={handleFilterClick}
+        selectedFilter={selectedFilter}
+      />
       {isLoading
         ? demoArray.map((number) => <Loader key={number} />)
         : posts.map((post) => <MainCard key={post._id} post={post} />)}
@@ -60,7 +71,6 @@ const MainCard = ({ post }) => {
     container: 'rounded-lg border w-full bg-white shadow-sm mb-4',
     postImage: 'rounded-tl-lg rounded-tr-lg',
     avatarImage: 'w-16 h-16 mx-4 rounded-full cursor-pointer',
-
     userName: 'font-semibold text-base',
   }
 
@@ -138,4 +148,4 @@ const MainCard = ({ post }) => {
   )
 }
 
-export { MainCard, CardsContainer }
+export { MainCard, CardsContainer, QueryNavLink }

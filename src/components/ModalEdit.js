@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { getPost, updatePost } from 'services/posts'
+import { useParams } from 'react-router-dom'
 
 function ModalEdit() {
   const classes = {
     btn: 'bg-blue-500 rounded-lg m-2 p-2 w-28 text-white font-bold h-26 hover:bg-blue-400 hover:font-bold',
     modalcontainer:
       'justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none',
-    modalposition: 'relative w-auto my-6 mx-auto max-w-3xl',
+    modalposition: 'relative w-auto my-6 mx-auto max-w-sm',
     modalheader:
       'border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none',
     modalfix:
@@ -15,7 +17,7 @@ function ModalEdit() {
       'p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none',
     modalspan:
       'bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none',
-    modalbodyposition: 'elative p-6 flex-auto',
+    modalbodyposition: 'relative p-6 flex-auto',
     modalbody: 'my-4 text-blueGray-500 text-lg leading-relaxed',
     modalfooter:
       'flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b',
@@ -26,7 +28,45 @@ function ModalEdit() {
     modalend: 'opacity-25 fixed inset-0 z-40 bg-black',
   }
 
-  const [Modal, setModal] = useState(false)
+  const [modal, setModal] = useState(false)
+  const [imagenURL, setImagenURL] = useState('')
+  const [title, setTitle] = useState('')
+  const [content, setContent] = useState('')
+  const [name, setName] = useState('')
+  const [tags, setTags] = useState('')
+  const [date, setDate] = useState('')
+
+  const params = useParams()
+
+  useEffect(() => {
+    const get = async () => {
+      const { name, title, imagenURL, content, tags, date } = await getPost(
+        params.postId
+      )
+      setName(name)
+      setTags(tags)
+      setDate(date)
+      setImagenURL(imagenURL)
+      setTitle(title)
+      setContent(content)
+    }
+    get()
+  }, [params.postId])
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const data = {
+      // name,
+      title,
+      imageURL: imagenURL,
+      content,
+      // tags,
+      // date,
+    }
+    console.log(data)
+    await updatePost(params.postId, data)
+    console.log('Si imprime')
+  }
   return (
     <>
       <button
@@ -37,7 +77,7 @@ function ModalEdit() {
         {' '}
         Editar{' '}
       </button>
-      {Modal ? (
+      {modal ? (
         <>
           <div className={classes.modalcontainer}>
             <div className={classes.modalposition}>
@@ -54,15 +94,63 @@ function ModalEdit() {
                   </button>
                 </div>
                 {/*body*/}
-                <div className={classes.modalbodyposition}>
-                  <p className={classes.modalbody}>
-                    I always felt like I could do anything. That’s the main
-                    thing people are controlled by! Thoughts- their perception
-                    of themselves! They're slowed down by their perception of
-                    themselves. If you're taught you can’t do anything, you
-                    won’t do anything. I was taught I could do everything.
-                  </p>
-                </div>
+                <form className={classes.modalbodyposition}>
+                  <div className="grid grid-cols-3 gap-6">
+                    <div className="col-span-6">
+                      <label
+                        for="imagenURL"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Reemplaza la Imagen
+                      </label>
+                      <div className="mt-1 flex rounded-md shadow-sm">
+                        <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                          http://
+                        </span>
+                        <input
+                          type="url"
+                          id="imagenURL"
+                          value={imagenURL}
+                          onChange={(event) => setImagenURL(event.target.value)}
+                          name="imagenURL"
+                          className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        />
+                      </div>
+                    </div>
+                    <div className="col-span-6">
+                      <label
+                        for="title"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Modifica el Titulo
+                      </label>
+                      <input
+                        type="text"
+                        name="title"
+                        value={title}
+                        onChange={(event) => setTitle(event.target.value)}
+                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                      />
+                    </div>
+                    <div className="col-span-6">
+                      <label
+                        for="content"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Revisa el contenido
+                      </label>
+                      <div className="mt-1">
+                        <textarea
+                          name="content"
+                          value={content}
+                          onChange={(event) => setContent(event.target.value)}
+                          rows="3"
+                          className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </form>
                 {/*footer*/}
                 <div className={classes.modalfooter}>
                   <button
@@ -70,14 +158,14 @@ function ModalEdit() {
                     type="button"
                     onClick={() => setModal(false)}
                   >
-                    Close
+                    Cancelar
                   </button>
                   <button
                     className={classes.savebtn}
-                    type="button"
-                    onClick={() => setModal(false)}
+                    type="submit"
+                    onClick={handleSubmit}
                   >
-                    Save Changes
+                    Guardar Cambios
                   </button>
                 </div>
               </div>
