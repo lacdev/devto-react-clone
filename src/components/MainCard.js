@@ -2,8 +2,9 @@ import { formatDate, formatCreationDate } from 'utils/dates'
 import { NavLink, useLocation } from 'react-router-dom'
 import { getPosts } from 'services/posts'
 import { useState, useEffect } from 'react'
-import { Loader } from './Loader'
+// import { Loader } from './Loader'
 import { FiltersContainer } from 'components/FiltersContainer'
+import { HomeLoader } from './HomeLoader'
 
 function QueryNavLink({ to, ...props }) {
   let location = useLocation()
@@ -56,7 +57,7 @@ const CardsContainer = () => {
         selectedFilter={selectedFilter}
       />
       {isLoading
-        ? demoArray.map((number) => <Loader key={number} />)
+        ? demoArray.map((number) => <HomeLoader key={number} />)
         : posts.map((post) => <MainCard key={post._id} post={post} />)}
     </div>
   )
@@ -68,7 +69,7 @@ const MainCard = ({ post }) => {
       'text-xs mr-1 px-2 py-1 border rounded-lg border-white hover:border-gray-400 hover:bg-gray-100',
     commentsButtons:
       'px-2 py-1 mr-3 text-sm rounded-md hover:bg-gray-100 bg-white hover:font-base',
-    container: 'rounded-lg border w-full bg-white shadow-sm mb-4',
+    container: 'rounded-lg border w-full bg-white shadow-sm mb-4 ',
     postImage: 'rounded-tl-lg rounded-tr-lg',
     avatarImage: 'w-16 h-16 mx-4 rounded-full cursor-pointer',
     userName: 'font-semibold text-base',
