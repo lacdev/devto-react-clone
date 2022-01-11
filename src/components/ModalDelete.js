@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 function ModalDelete() {
   const classes = {
-    btn: 'bg-blue-500 rounded-lg m-2 p-2 w-28 text-white font-bold h-26 hover:bg-blue-400 hover:font-bold',
+    btn: 'bg-red-500 rounded-lg m-2 p-2 w-28 text-white font-bold h-26 hover:bg--400 hover:font-bold',
     modalcontainer:
       'justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none',
     modalposition: 'relative w-auto my-6 mx-auto max-w-3xl',
@@ -15,7 +15,7 @@ function ModalDelete() {
       'p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none',
     modalspan:
       'bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none',
-    modalbodyposition: 'elative p-6 flex-auto',
+    modalbodyposition: 'relative p-6 flex-auto',
     modalbody: 'my-4 text-blueGray-500 text-lg leading-relaxed',
     modalfooter:
       'flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b',
@@ -30,7 +30,7 @@ function ModalDelete() {
     <>
         <button
           className={classes.btn}
-          type="button" onClick={() => setModal(true)} > Editar </button>
+          type="button" onClick={() => setModal(true)} > Eliminar </button>
         {Modal ? (
           <>
             <div className={classes.modalcontainer} >
@@ -40,7 +40,7 @@ function ModalDelete() {
                   {/*header*/}
                   <div className={classes.modalfix} >
                     <h3 className={classes.modaltitle} >
-                      Edita tu Post
+                      ¿Estas seguro de Eliminar el Post?
                     </h3>
                     <button
                       className={classes.modalbtncancel}
@@ -52,37 +52,13 @@ function ModalDelete() {
                     </button>
                   </div>
                   {/*body*/}
-                  <form className={classes.modalbodyposition} >
-                   <div className='grid grid-cols-3 gap-6'>
-                     <div className='col-span-6'>
-                       <label for='imagenURL' className='block text-sm font-medium text-gray-700'>
-                         Reemplaza la Imagen
-                       </label>
-                       <div className='mt-1 flex rounded-md shadow-sm'>
-                         <span className='inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm'>
-                          http://
-                         </span>
-                         <input type="url" name="imagenURL" className='mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'/>
-                       </div>
-                     </div>
-                     <div className='col-span-6'>
-                       <label for="title" className='block text-sm font-medium text-gray-700'>
-                         Modifica el Titulo
-                       </label>
-                       <input type="text" name="title" className='mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md' />
-                     </div>
-                     <div className='col-span-6'>
-                       <label for="content" className='block text-sm font-medium text-gray-700' >
-                        Revisa el contenido 
-                       </label>
-                       <div className='mt-1'>
-                        <textarea name="content" rows="3" className='shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md' >
-                        </textarea>
-                       </div>
-                     </div>
-                  </div>
-
-                </form>
+                  <div className={classes.modalbodyposition} >
+                    <div className='mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10'>
+                    <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                         </svg>
+                     </div> 
+                </div>
                   {/*footer*/}
                   <div className={classes.modalfooter} >
                     <button
@@ -96,7 +72,7 @@ function ModalDelete() {
                       className={classes.savebtn}
                        type="button" 
                        onClick={() => setModal(false)} >
-                    Guardar Cambios
+                    Eliminar
                     </button>
                   </div>
                 </div>

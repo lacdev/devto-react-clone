@@ -3,6 +3,7 @@ import { formatCreationDate } from 'utils/dates'
 import { useParams } from 'react-router-dom'
 import { getPost } from 'services/posts'
 import ModalEdit from './ModalEdit'
+import ModalDelete from './ModalDelete'
 function OnePost({ name, title, imageURL, content, tags }) {
   let params = useParams()
   console.log(params)
@@ -80,10 +81,7 @@ function OnePost({ name, title, imageURL, content, tags }) {
 
       <div className="flex m-3 px-1 py-2 place-content-end">
         <ModalEdit />
-        <button className="bg-red-500 rounded-lg text-white m-2 font-bold p-2 w-28 h-26 hover:bg-red-400 hover:font-bold">
-          {' '}
-          Eliminar
-        </button>
+         <ModalDelete/>
       </div>
     </div>
   )
