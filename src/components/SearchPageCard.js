@@ -64,15 +64,17 @@ export const SearchPageCard = () => {
       : posts.map((post) => <MainCard key={post._id} post={post} />)}
   </div>;
 
+  const oops = "text-5xl font-bold mt-6 mb-6 text-center text-indigo-700";
+  const anotherWord =
+    "text-5xl font-bold mt-6 mb-6 text-center text-indigo-500";
+
   if (filteredPosts.length == 0)
     return (
       <div className={containerResults}>
-        <h3 className="text-5xl font-bold text-indigo-700">
+        <h3 className={oops}>
           Oops. No post with that title related <br></br>
         </h3>
-        <h3 className="text-5xl font-bold mt-6 text-indigo-500">
-          Try again with another word
-        </h3>
+        <h3 className={anotherWord}>Try again with another word</h3>
       </div>
     );
 
