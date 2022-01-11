@@ -1,5 +1,5 @@
 import { FilterButton } from './FilterButton'
-import classnames from 'classnames'
+
 
 const FiltersContainer = () => {
   //TODO

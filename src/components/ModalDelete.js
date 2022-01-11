@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function ModalEdit() {
+function ModalDelete() {
   const classes = {
     btn: 'bg-blue-500 rounded-lg m-2 p-2 w-28 text-white font-bold h-26 hover:bg-blue-400 hover:font-bold',
     modalcontainer:
@@ -25,7 +25,6 @@ function ModalEdit() {
       'bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150',
     modalend: 'opacity-25 fixed inset-0 z-40 bg-black',
   }
-
   const [Modal, setModal] = useState(false)
   return (
     <>
@@ -107,7 +106,8 @@ function ModalEdit() {
         </>
       ) : null}
     </>
+
   )
 }
 
-export default ModalEdit
+export default ModalDelete
