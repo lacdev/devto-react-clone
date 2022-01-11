@@ -32,30 +32,16 @@ function ModalEdit() {
   const [imagenURL, setImagenURL] = useState('')
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
-  const [name, setName] = useState('')
-  const [tags, setTags] = useState('')
-  const [date, setDate] = useState('')
-  const [isError, setIsError] = useState(false)
-  const [isEdited, setIsEdited] = useState(false)
 
   const params = useParams()
 
   useEffect(() => {
     const get = async () => {
-      try {
-        const { name, title, imagenURL, content, tags, date } = await getPost(
-          params.postId
-        )
-        setName(name)
-        setTags(tags)
-        setDate(date)
-        setImagenURL(imagenURL)
-        setTitle(title)
-        setContent(content)
-      } catch (error) {
-        console.log(error)
-        setIsError(true)
-      }
+      const { title, imagenURL, content } = await getPost(params.postId)
+
+      setImagenURL(imagenURL)
+      setTitle(title)
+      setContent(content)
     }
     get()
   }, [params.postId])
@@ -63,15 +49,17 @@ function ModalEdit() {
   const handleSubmit = async (event) => {
     event.preventDefault()
     const data = {
+      // name,
       title,
       imageURL: imagenURL,
       content,
+      // tags,
+      // date,
     }
     console.log(data)
     await updatePost(params.postId, data)
     console.log('Si imprime')
   }
-
   return (
     <>
       <button
