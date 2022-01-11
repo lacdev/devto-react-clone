@@ -32,20 +32,16 @@ function ModalEdit() {
   const [imagenURL, setImagenURL] = useState('')
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
-  const [name, setName] = useState('')
-  const [tags, setTags] = useState('')
-  const [date, setDate] = useState('')
+
 
   const params = useParams()
 
   useEffect(() => {
     const get = async () => {
-      const { name, title, imagenURL, content, tags, date } = await getPost(
+      const { title, imagenURL, content } = await getPost(
         params.postId
       )
-      setName(name)
-      setTags(tags)
-      setDate(date)
+    
       setImagenURL(imagenURL)
       setTitle(title)
       setContent(content)
