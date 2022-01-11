@@ -28,26 +28,26 @@ function ModalDelete() {
     modalend: 'opacity-25 fixed inset-0 z-40 bg-black',
   }
   const [Modal, setModal] = useState(false)
-  const [post, setPost] = useState({})
-  const params = useParams()
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    const get = async () => {
-      const response = await getPost(params.postId)
-      console.log(response)
-      setPost(response)
-    }
-    get()
-  }, [params.postId])
-
-  const handleDelete = async () => {
-    console.error('eliminado')
-    await deletePost(params.postId)
-    navigate('/')
-  }
-
-  return (
+  const [post, setPost] = useState({});
+   const params = useParams();
+   const navigate = useNavigate();
+   
+   useEffect(() => {
+       const get = async () => {
+           const response = await getPost(params.postId);
+           console.log(response);
+           setPost(response)
+       };
+       get();
+   }, [params.postId]);
+   
+   const handleDelete = async () => {
+       console.error("eliminado");
+       await deletePost(params.postId);
+       navigate("/");
+   };
+ 
+   return (
     <>
       <button
         className={classes.btn}
