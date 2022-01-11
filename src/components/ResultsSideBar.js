@@ -4,7 +4,7 @@ import React from "react";
 const searchtext = "text-3xl mt-[80px] mx-10";
 const container = "mx-10 m-2 w-60 h-52 bg-gray-50";
 const list =
-  "hover:bg-[#ffffffec] rounded-md w-auto h-10 p-2 hover:text-blue-800 hover:text-base";
+  "hover:bg-[#ffffffec] rounded-md w-auto h-10 p-2 hover:text-blue-800 hover:text-base ";
 
 export const ResultsSideBar = () => {
   return (

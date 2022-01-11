@@ -3,9 +3,15 @@ import { useSearchParams } from "react-router-dom";
 import { getPosts } from "services/posts";
 import { useState, useEffect } from "react";
 import { Loader } from "./Loader";
-import { MainCard } from "components/MainCard";
+import { NavLink, useLocation } from "react-router-dom";
+import { formatDate, formatCreationDate } from "utils/dates";
 
-export const Users = () => {
+function QueryNavLink({ to, ...props }) {
+  let location = useLocation();
+  return <NavLink to={to + location.search} {...props} />;
+}
+
+export const SearchPageCard = () => {
   const [searchParams] = useSearchParams();
   let search = searchParams.get("query");
 
@@ -63,7 +69,62 @@ export const Users = () => {
     <div>
       {isLoading
         ? demoArray.map((number) => <Loader key={number} />)
-        : filteredPosts.map((post) => <div post={post}>{post.title}</div>)}
+        : filteredPosts.map((post) => {
+            return (
+              <div
+                className="m-3 border w-[70%] rounded-md border-black translate-x-[350px]  -translate-y-[220px]"
+                post={post}
+              >
+                <div className="flex">
+                  <img
+                    className="rounded-full w-[60px] h-[60px] m-4"
+                    src={post?.avatar}
+                    alt="linus"
+                  ></img>
+                  <div>
+                    <h1 className="text-3xl font-bold mx-3 mt-3">
+                      {" "}
+                      {post.name}
+                    </h1>
+
+                    <h2 className="text-xl text mx-3 mt-3 ">
+                      {" "}
+                      {`${formatCreationDate(post?.date)} (${formatDate(
+                        post?.date
+                      )})`}
+                    </h2>
+                    <QueryNavLink to={`/post/${post?._id}`}>
+                      <h1 className="font-bold text-3xl mt-3 mb-3 mx-3 cursor-pointer hover:text-indigo-700">
+                        {post?.title}
+                      </h1>
+                    </QueryNavLink>
+                    <div className="flex">
+                      {post?.tags?.map((tag) => {
+                        return (
+                          <a href="#/" className="m-2 ">
+                            {`#${tag}`}
+                          </a>
+                        );
+                      })}
+                    </div>
+                    <button className="px-2 py-1 mr-3 text-sm rounded-md hover:bg-gray-100 bg-white hover:font-base">
+                      <span className="flex items-center">
+                        <svg
+                          class="crayons-icon"
+                          width="24"
+                          height="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z"></path>
+                        </svg>
+                        {`${post?.reactions} Reactions`}
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
     </div>
   );
 };
