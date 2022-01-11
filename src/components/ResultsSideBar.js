@@ -2,7 +2,7 @@ import React from "react";
 
 //css styles
 const searchtext = "text-3xl mt-[80px] mx-10";
-const container = "mx-10 m-2 w-[15git %] h-[auto] ";
+const container = "mx-10 m-2 w-[15%] h-[auto] ";
 const list =
   "hover:bg-[#ffffffec] rounded-md w-auto h-10 p-2 hover:text-blue-800 hover:text-base cursor-pointer";
 

@@ -14,7 +14,8 @@ function QueryNavLink({ to, ...props }) {
 
 export const SearchPageCard = () => {
   const [searchParams] = useSearchParams();
-  let search = searchParams.get("query");
+  let search = searchParams.get("query").toLowerCase();
+  console.log(search);
 
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -27,8 +28,9 @@ export const SearchPageCard = () => {
       try {
         setIsLoading(true);
         const response = await getPosts();
+        console.log(response.data.posts);
         const newPosts = response.data.posts.filter((post) =>
-          post.title.includes(search)
+          post.title.includes(search.toLowerCase())
         );
         console.log("newPosts", newPosts);
         setPosts(response.data.posts);
@@ -40,7 +42,7 @@ export const SearchPageCard = () => {
       }
     };
     get();
-  }, []);
+  }, [search]);
 
   // Error message
   const containerResults =
