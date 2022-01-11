@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import {getPost, deletePost} from 'services/posts'
+
 
 function ModalDelete() {
   const classes = {
@@ -26,7 +29,26 @@ function ModalDelete() {
     modalend: 'opacity-25 fixed inset-0 z-40 bg-black',
   }
   const [Modal, setModal] = useState(false)
-  return (
+  const [post, setPost] = useState({});
+   const params = useParams();
+   const navigate = useNavigate();
+   
+   useEffect(() => {
+       const get = async () => {
+           const response = await getPost(params.postId);
+           console.log(response);
+           setPost(response)
+       };
+       get();
+   }, [params.postId]);
+   
+   const handleDelete = async () => {
+       console.error("eliminado");
+       await deletePost(params.postId);
+       navigate("/home");
+   };
+ 
+   return (
     <>
         <button
           className={classes.btn}
@@ -71,7 +93,7 @@ function ModalDelete() {
                     <button
                       className={classes.savebtn}
                        type="button" 
-                       onClick={() => setModal(false)} >
+                       onClick={handleDelete} >
                     Eliminar
                     </button>
                   </div>

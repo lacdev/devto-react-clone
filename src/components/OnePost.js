@@ -25,8 +25,8 @@ function OnePost({ name, title, imageURL, content, tags }) {
         setIsError(true)
       }
     }
-    get()
-  }, [])
+    get();
+  }, []);
 
   const classes = {
     tagLink:
