@@ -1,6 +1,4 @@
 import ContentLoader from 'react-content-loader'
-import { Columns } from './Columns'
-import { Container } from './Container'
 
 const Loader = (props) => (
   <ContentLoader
