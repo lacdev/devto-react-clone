@@ -1,6 +1,6 @@
 const HomeLoader = () => {
   const classes = {
-    container: 'flex flex-col  max-w-full pt-5 mt-4 grow-1',
+    container: 'flex flex-col max-w-full pt-5 mt-4 shrink-0 md:w-96	',
     containerAnimate: 'flex flex-col w-full px-3 animate-pulse',
     backgroundContainer: 'flex flex-col rounded-lg w-full p-2 shadow bg-white',
     imageContainer: 'flex flex-col w-full h-full justify-center',

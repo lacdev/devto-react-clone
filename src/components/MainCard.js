@@ -51,7 +51,7 @@ const CardsContainer = () => {
     )
 
   return (
-    <div>
+    <>
       <FiltersContainer
         onFilterClick={handleFilterClick}
         selectedFilter={selectedFilter}
@@ -59,7 +59,7 @@ const CardsContainer = () => {
       {isLoading
         ? demoArray.map((number) => <HomeLoader key={number} />)
         : posts.map((post) => <MainCard key={post._id} post={post} />)}
-    </div>
+    </>
   )
 }
 
