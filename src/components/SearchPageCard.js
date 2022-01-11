@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { Loader } from "./Loader";
 import { NavLink, useLocation } from "react-router-dom";
 import { formatDate, formatCreationDate } from "utils/dates";
+import { MainCard } from "components/MainCard";
 
 function QueryNavLink({ to, ...props }) {
   let location = useLocation();
@@ -41,10 +42,14 @@ export const SearchPageCard = () => {
     get();
   }, []);
 
+  // Error message
+  const containerResults =
+    "m-3 w-[70%] rounded-lg border bg-[#ffffffec] translate-x-[300px]  -translate-y-[270px]";
+
   if (!isLoading && isError)
     return (
-      <div>
-        <h3 className="text-5xl font-bold text-indigo-700">
+      <div className={containerResults}>
+        <h3 className="text-5xl font-bold text-indigo-700 ">
           Oops. There was an error <br></br>
         </h3>
         <h3 className="text-5xl font-bold mt-6 text-indigo-500">
@@ -53,9 +58,15 @@ export const SearchPageCard = () => {
       </div>
     );
 
+  <div>
+    {isLoading
+      ? demoArray.map((number) => <Loader key={number} />)
+      : posts.map((post) => <MainCard key={post._id} post={post} />)}
+  </div>;
+
   if (filteredPosts.length == 0)
     return (
-      <div>
+      <div className={containerResults}>
         <h3 className="text-5xl font-bold text-indigo-700">
           Oops. No post with that title related <br></br>
         </h3>
@@ -65,16 +76,19 @@ export const SearchPageCard = () => {
       </div>
     );
 
+  <div>
+    {isLoading
+      ? demoArray.map((number) => <Loader key={number} />)
+      : posts.map((post) => <MainCard key={post._id} post={post} />)}
+  </div>;
+
   return (
     <div>
       {isLoading
         ? demoArray.map((number) => <Loader key={number} />)
         : filteredPosts.map((post) => {
             return (
-              <div
-                className="m-3 border w-[70%] rounded-md border-black translate-x-[350px]  -translate-y-[220px]"
-                post={post}
-              >
+              <div className={containerResults} post={post}>
                 <div className="flex">
                   <img
                     className="rounded-full w-[60px] h-[60px] m-4"

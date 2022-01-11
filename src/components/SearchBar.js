@@ -16,7 +16,7 @@ export const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const onSubmitForm = (event) => {
-   //Prevenimos la recarga del navegador
+    //Prevenimos la recarga del navegador
     event.preventDefault();
     if (searchTerm === "") return;
     //Navegamos a la pagina de resultados
