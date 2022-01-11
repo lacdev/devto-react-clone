@@ -138,4 +138,4 @@ const MainCard = ({ post }) => {
   )
 }
 
-export { MainCard, CardsContainer }
+export { MainCard, CardsContainer, QueryNavLink }
