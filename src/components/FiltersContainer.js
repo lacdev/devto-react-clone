@@ -1,24 +1,68 @@
 import { FilterButton } from './FilterButton'
 import classnames from 'classnames'
+import { NavLink, Outlet, useSearchParams } from 'react-router-dom'
 
-const FiltersContainer = () => {
+const FiltersContainer = ({ onFilterClick, selectedFilter }) => {
   //TODO
   //If Top is active, show right filters
   //If Latest or Relevant is active, hide right filters
   //If any button is active, increase font-weight
   //When Top gets active for the first time, week sets to active
+
+  const setButtonActive = (buttonName, selectedFilter) => {
+    return selectedFilter === buttonName
+  }
+
   return (
     <div className="mb-4 flex justify-between mt-4">
       <div>
-        <FilterButton>Relevant</FilterButton>
-        <FilterButton>Latest</FilterButton>
-        <FilterButton>Top</FilterButton>
+        <FilterButton
+          onFilterClick={onFilterClick}
+          isActive={setButtonActive('day', selectedFilter)}
+          id={'day'}
+        >
+          Relevant
+        </FilterButton>
+        <FilterButton
+          onFilterClick={onFilterClick}
+          id={null}
+          isActive={setButtonActive('latest', selectedFilter)}
+        >
+          Latest
+        </FilterButton>
+        <FilterButton isActive={setButtonActive('top', selectedFilter)}>
+          Top
+        </FilterButton>
       </div>
       <div>
-        <FilterButton>Week</FilterButton>
-        <FilterButton>Month</FilterButton>
-        <FilterButton>Year</FilterButton>
-        <FilterButton>Infinity</FilterButton>
+        <FilterButton
+          onFilterClick={onFilterClick}
+          id={'week'}
+          isActive={setButtonActive('week', selectedFilter)}
+        >
+          Week
+        </FilterButton>
+        <FilterButton
+          onFilterClick={onFilterClick}
+          id={'month'}
+          isActive={setButtonActive('month', selectedFilter)}
+        >
+          Month
+        </FilterButton>
+        <FilterButton
+          onFilterClick={onFilterClick}
+          id={'year'}
+          isActive={setButtonActive('year', selectedFilter)}
+        >
+          Year
+        </FilterButton>
+        <FilterButton
+          onFilterClick={onFilterClick}
+          id={'infinity'}
+          isActive={setButtonActive('infinity', selectedFilter)}
+        >
+          Infinity
+        </FilterButton>
       </div>
     </div>
   )
