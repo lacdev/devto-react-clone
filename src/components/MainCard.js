@@ -71,7 +71,6 @@ const MainCard = ({ post }) => {
     container: 'rounded-lg border w-full bg-white shadow-sm mb-4',
     postImage: 'rounded-tl-lg rounded-tr-lg',
     avatarImage: 'w-16 h-16 mx-4 rounded-full cursor-pointer',
-
     userName: 'font-semibold text-base',
   }
 
