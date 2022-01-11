@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 import NavBarCreate from 'components/NavBarCreate'
 import BottomButtonsCreate from 'components/BottomButtonsCreate'
@@ -16,8 +16,36 @@ function CreatePost() {
     const [tags, setTags] = useState([]);
     const [reactions, setReaction] = useState(0);
     const [avatar, setAvatar] = useState("");
-
+    const [isLoading, setIsLoading] = useState(false)
+    const [isError, setIsError] = useState(false)
     
+    useEffect(() => {
+        const post = async () => {
+          try {
+            setIsLoading(true)
+            const response = await createPost()
+            setIsLoading(false)
+          } catch (error) {
+            console.log(error)
+            setIsError(true)
+          }
+        }
+        post()
+      }, [])
+    
+    if (!isLoading && isError) {
+        return (
+            <div>
+              <h3 className="text-5xl font-bold text-indigo-700">
+                Oops. There was an error <br></br>
+              </h3>
+              <h3 className="text-5xl font-bold mt-6 text-indigo-500">
+                Try again later
+              </h3>
+            </div>
+        )
+    }
+
     const Publish = async (event) => {
         event.preventDefault();
         const date = new Date();
