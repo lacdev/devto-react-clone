@@ -57,9 +57,12 @@ function ModalEdit() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = {
-      imageURL : imagenURL,
+      name,
       title,
+      imageURL : imagenURL,
       content,
+      tags,
+      date,
     };
     await updatePost(params.postId, data);
     console.log("Si imprime");
