@@ -45,7 +45,7 @@ function ModalDelete() {
    const handleDelete = async () => {
        console.error("eliminado");
        await deletePost(params.postId);
-       navigate("/home");
+       navigate("/");
    };
  
    return (
