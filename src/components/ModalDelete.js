@@ -4,7 +4,7 @@ import { getPost, deletePost } from 'services/posts'
 
 function ModalDelete() {
   const classes = {
-    btn: 'bg-red-500 rounded-lg m-2 p-2 w-28 text-white font-bold h-26 hover:bg--400 hover:font-bold',
+    btn: 'bg-red-500 rounded-lg m-2 p-2 w-28 text-white font-bold h-26 hover:bg-red-400 hover:font-bold',
     modalcontainer:
       'justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none',
     modalposition: 'relative w-auto my-6 mx-auto max-w-3xl',

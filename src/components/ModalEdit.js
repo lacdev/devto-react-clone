@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { getPost, updatePost } from 'services/posts'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
-function ModalEdit() {
+function ModalEdit({handleSubmit}) {
   const classes = {
     btn: 'bg-blue-500 rounded-lg m-2 p-2 w-28 text-white font-bold h-26 hover:bg-blue-400 hover:font-bold',
     modalcontainer:
@@ -22,9 +22,9 @@ function ModalEdit() {
     modalfooter:
       'flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b',
     closebtn:
-      'text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150',
+      'text-red-500 background-transparent font-bold uppercase text-sm outline-none px-3 py-2 h-9 w-19 focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150',
     savebtn:
-      'bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150',
+      'bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-center text-sm py-2 px-3 h-9 w-19 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150',
     modalend: 'opacity-25 fixed inset-0 z-40 bg-black',
   }
 
@@ -32,9 +32,9 @@ function ModalEdit() {
   const [imagenURL, setImagenURL] = useState('')
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
-
-
+  const navigate = useNavigate();
   const params = useParams()
+  
 
   useEffect(() => {
     const get = async () => {
@@ -49,7 +49,7 @@ function ModalEdit() {
     get()
   }, [params.postId])
 
-  const handleSubmit = async (event) => {
+/*  const handleSubmit = async (event) => {
     event.preventDefault()
     const data = {
       // name,
@@ -61,8 +61,10 @@ function ModalEdit() {
     }
     console.log(data)
     await updatePost(params.postId, data)
-    console.log('Si imprime')
+    window.location.reload()
+   //navigate(`/post/${params.postId}`, {replace: true})
   }
+  */
   return (
     <>
       <button
@@ -90,7 +92,7 @@ function ModalEdit() {
                   </button>
                 </div>
                 {/*body*/}
-                <form className={classes.modalbodyposition}>
+                <form onSubmit={(event) => handleSubmit(event, title, content, imagenURL)} className={classes.modalbodyposition}>
                   <div className="grid grid-cols-3 gap-6">
                     <div className="col-span-6">
                       <label
@@ -146,8 +148,7 @@ function ModalEdit() {
                       </div>
                     </div>
                   </div>
-                </form>
-                {/*footer*/}
+                  {/*footer*/}
                 <div className={classes.modalfooter}>
                   <button
                     className={classes.closebtn}
@@ -157,13 +158,11 @@ function ModalEdit() {
                     Cancelar
                   </button>
                   <button
-                    className={classes.savebtn}
-                    type="submit"
-                    onClick={handleSubmit}
-                  >
+                    className={classes.savebtn} type="submit">
                     Guardar Cambios
                   </button>
                 </div>
+              </form>  
               </div>
             </div>
           </div>

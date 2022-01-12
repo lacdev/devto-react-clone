@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { formatCreationDate } from 'utils/dates'
 import { useParams } from 'react-router-dom'
-import { getPost } from 'services/posts'
+import { getPost, updatePost } from 'services/posts'
 import ModalEdit from './ModalEdit'
 import ModalDelete from './ModalDelete'
 import { LoaderPost } from './LoaderPost'
@@ -13,6 +13,7 @@ function OnePost({ name, title, imageURL, content, tags }) {
   const [renderData, setRenderData] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
+  const [isEdit, setIsEdit] = useState(false)
   useEffect(() => {
     const get = async () => {
       try {
@@ -29,7 +30,7 @@ function OnePost({ name, title, imageURL, content, tags }) {
       }
     }
     get();
-  }, []);
+  }, [isEdit]);
 
   if (!isLoading && isError)
   return (
@@ -43,6 +44,19 @@ function OnePost({ name, title, imageURL, content, tags }) {
   </div>
   )
    
+  
+  const handleSubmit = async (event, title, content, imagenURL) => {
+    event.preventDefault()
+    const data = {
+      title,
+      content,
+      imagenURL,
+    }
+    console.log(data)
+    await updatePost(params.postId, data)
+    setIsEdit(true)
+   //navigate(`/post/${params.postId}`, {replace: true})
+  }
   
 
   const classes = {
@@ -99,7 +113,7 @@ function OnePost({ name, title, imageURL, content, tags }) {
       </div>
 
       <div className="flex m-3 px-1 py-2 place-content-end">
-        <ModalEdit />
+        <ModalEdit handleSubmit={handleSubmit}/>
          <ModalDelete/>
       </div>
     </div>
