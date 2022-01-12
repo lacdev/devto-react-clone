@@ -12,8 +12,7 @@ import { Columns } from 'components/Columns'
 import { CodeNewbie } from 'components/CodeNewbie'
 import StickerPack from 'components/StickerPack'
 import Listings from 'components/Listings'
-import { CardsContainer } from 'components/MainCard'
-import { HomeLoader } from 'components/HomeLoader'
+import { CardsContainer } from 'components/CardsContainer'
 
 function Home() {
   return (
