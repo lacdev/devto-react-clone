@@ -7,8 +7,8 @@ import ModalDelete from './ModalDelete'
 import { LoaderPost } from './LoaderPost'
 
 function OnePost({ name, title, imageURL, content, tags }) {
-  let params = useParams()
-  console.log(params)
+  let params = useParams();
+  console.log(params);
 
   const [renderData, setRenderData] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
@@ -24,8 +24,8 @@ function OnePost({ name, title, imageURL, content, tags }) {
         console.log(renderData)
         setIsLoading(false)
       } catch (error) {
-        console.log(error)
-        setIsError(true)
+        console.log(error);
+        setIsError(true);
       }
     }
     get()
@@ -43,14 +43,26 @@ function OnePost({ name, title, imageURL, content, tags }) {
       </div>
     )
 
+  if (!isLoading && isError)
+    return (
+      <div className="bg-white pb-3 w-auto h-auto">
+        <h3 className="text-5xl font-bold text-indigo-700">
+          Oops. There was an error <br></br>
+        </h3>
+        <h3 className="text-5xl font-bold mt-6 text-indigo-500">
+          Try again later
+        </h3>
+      </div>
+    );
+
   const classes = {
     tagLink:
       'text-xs mr-1 px-2 py-1 border rounded-lg m-4  text-center border-white hover:border-gray-400 hover:bg-gray-100',
     commentsButtons:
-      'px-2 py-1 mr-3 text-sm rounded-md hover:bg-gray-100 bg-white hover:font-base',
-    avatarImage: 'w-16 h-16 mx-4 rounded-full cursor-pointer',
-    userName: 'font-semibold text-base',
-  }
+      "px-2 py-1 mr-3 text-sm rounded-md hover:bg-gray-100 bg-white hover:font-base",
+    avatarImage: "w-16 h-16 mx-4 rounded-full cursor-pointer",
+    userName: "font-semibold text-base",
+  };
   return (
     <>
       {!isLoading ? (
@@ -108,4 +120,4 @@ function OnePost({ name, title, imageURL, content, tags }) {
   )
 }
 
-export default OnePost
+export default OnePost;
