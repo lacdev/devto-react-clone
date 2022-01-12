@@ -45,7 +45,7 @@ function OnePost({ name, title, imageURL, content, tags }) {
 
   const classes = {
     tagLink:
-      'text-xs mr-1 px-2 py-1 border rounded-lg  text-center border-white hover:border-gray-400 hover:bg-gray-100',
+      'text-xs mr-1 px-2 py-1 border rounded-lg m-4  text-center border-white hover:border-gray-400 hover:bg-gray-100',
     commentsButtons:
       'px-2 py-1 mr-3 text-sm rounded-md hover:bg-gray-100 bg-white hover:font-base',
     avatarImage: 'w-16 h-16 mx-4 rounded-full cursor-pointer',
@@ -77,8 +77,8 @@ function OnePost({ name, title, imageURL, content, tags }) {
             </div>
           </div>
 
-          <div className="p-10">
-            <h1 className="font-bold text-3xl mt-2 cursor-pointer hover:text-indigo-700 mb-2 text-center">
+          <div className="p-6">
+            <h1 className="font-bold ml-4 text-3xl cursor-pointer hover:text-indigo-700">
               {' '}
               {renderData?.title}
             </h1>
