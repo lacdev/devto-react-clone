@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { formatCreationDate } from 'utils/dates'
 import { useParams } from 'react-router-dom'
-import { getPost } from 'services/posts'
+import { getPost, updatePost } from 'services/posts'
 import ModalEdit from './ModalEdit'
 import ModalDelete from './ModalDelete'
 import { LoaderPost } from './LoaderPost'
@@ -13,6 +13,7 @@ function OnePost({ name, title, imageURL, content, tags }) {
   const [renderData, setRenderData] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
+  const [isEdit, setIsEdit] = useState(false)
   useEffect(() => {
     const get = async () => {
       try {
@@ -28,32 +29,35 @@ function OnePost({ name, title, imageURL, content, tags }) {
         setIsError(true);
       }
     }
-    get()
-  }, [])
+    get();
+  }, [isEdit]);
 
   if (!isLoading && isError)
-    return (
-      <div className="bg-white pb-3 w-auto h-auto">
-        <h3 className="text-5xl font-bold text-indigo-700">
-          Oops. There was an error <br></br>
-        </h3>
-        <h3 className="text-5xl font-bold mt-6 text-indigo-500">
-          Try again later
-        </h3>
-      </div>
-    )
-
-  if (!isLoading && isError)
-    return (
-      <div className="bg-white pb-3 w-auto h-auto">
-        <h3 className="text-5xl font-bold text-indigo-700">
-          Oops. There was an error <br></br>
-        </h3>
-        <h3 className="text-5xl font-bold mt-6 text-indigo-500">
-          Try again later
-        </h3>
-      </div>
-    );
+  return (
+    <div className="bg-white pb-3 w-auto h-auto">
+    <h3 className="text-5xl font-bold text-indigo-700">
+        Oops. There was an error <br></br>
+      </h3>
+      <h3 className="text-5xl font-bold mt-6 text-indigo-500">
+        Try again later
+      </h3>
+  </div>
+  )
+   
+  
+  const handleSubmit = async (event, title, content, imagenURL) => {
+    event.preventDefault()
+    const data = {
+      title,
+      content,
+      imagenURL,
+    }
+    console.log(data)
+    await updatePost(params.postId, data)
+    setIsEdit(true)
+   //navigate(`/post/${params.postId}`, {replace: true})
+  }
+  
 
   const classes = {
     tagLink:
@@ -108,14 +112,12 @@ function OnePost({ name, title, imageURL, content, tags }) {
             </p>
           </div>
 
-          <div className="flex m-3 px-1 py-2 place-content-end">
-            <ModalEdit />
-            <ModalDelete />
-          </div>
-        </div>
-      ) : (
-        <LoaderPost />
-      )}
+      <div className="flex m-3 px-1 py-2 place-content-end">
+        <ModalEdit handleSubmit={handleSubmit}/>
+         <ModalDelete/>
+      </div>
+    </div>
+  ) : <LoaderPost/>}
     </>
   )
 }
