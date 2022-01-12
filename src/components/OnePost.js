@@ -4,9 +4,7 @@ import { useParams } from 'react-router-dom'
 import { getPost } from 'services/posts'
 import ModalEdit from './ModalEdit'
 import ModalDelete from './ModalDelete'
-import { CommentSection } from 'components/CommentSection'
-import { ReadNext } from 'components/ReadNext'
-import { Loader } from 'components/Loader'
+import { LoaderPost } from './LoaderPost'
 
 function OnePost({ name, title, imageURL, content, tags }) {
   let params = useParams()
@@ -23,28 +21,19 @@ function OnePost({ name, title, imageURL, content, tags }) {
         console.log(response)
         console.log(response.data)
         setRenderData(response.data.posts)
-        setIsLoading(false)
         console.log(renderData)
+        setIsLoading(false)
       } catch (error) {
         console.log(error)
-        setIsError(false)
+        setIsError(true)
       }
     }
     get()
   }, [])
 
-  const classes = {
-    tagLink:
-      'text-xs mr-1 px-2 py-1 border rounded-lg  text-center border-white hover:border-gray-400 hover:bg-gray-100',
-    commentsButtons:
-      'px-2 py-1 mr-3 text-sm rounded-md hover:bg-gray-100 bg-white hover:font-base',
-    avatarImage: 'w-16 h-16 mx-4 rounded-full cursor-pointer',
-    userName: 'font-semibold text-base',
-  }
-
-  if (!isLoading && isError) {
+  if (!isLoading && isError)
     return (
-      <div>
+      <div className="bg-white pb-3 w-auto h-auto">
         <h3 className="text-5xl font-bold text-indigo-700">
           Oops. There was an error <br></br>
         </h3>
@@ -53,13 +42,18 @@ function OnePost({ name, title, imageURL, content, tags }) {
         </h3>
       </div>
     )
-  }
 
+  const classes = {
+    tagLink:
+      'text-xs mr-1 px-2 py-1 border rounded-lg m-4  text-center border-white hover:border-gray-400 hover:bg-gray-100',
+    commentsButtons:
+      'px-2 py-1 mr-3 text-sm rounded-md hover:bg-gray-100 bg-white hover:font-base',
+    avatarImage: 'w-16 h-16 mx-4 rounded-full cursor-pointer',
+    userName: 'font-semibold text-base',
+  }
   return (
-    <div>
-      {isLoading ? (
-        <Loader />
-      ) : (
+    <>
+      {!isLoading ? (
         <div className="bg-white pb-3 w-auto h-auto">
           <div className="rounded-lg border w-full bg-white shadow-sm mb-4">
             <div className="rounded-lg">
@@ -83,8 +77,8 @@ function OnePost({ name, title, imageURL, content, tags }) {
             </div>
           </div>
 
-          <div className="p-10">
-            <h1 className="font-bold text-3xl mt-2 cursor-pointer hover:text-indigo-700 mb-2 text-center">
+          <div className="p-6">
+            <h1 className="font-bold ml-4 text-3xl cursor-pointer hover:text-indigo-700">
               {' '}
               {renderData?.title}
             </h1>
@@ -106,11 +100,11 @@ function OnePost({ name, title, imageURL, content, tags }) {
             <ModalEdit />
             <ModalDelete />
           </div>
-          <CommentSection />
-          <ReadNext />
         </div>
+      ) : (
+        <LoaderPost />
       )}
-    </div>
+    </>
   )
 }
 

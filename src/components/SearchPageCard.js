@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { Loader } from "./Loader";
 import { NavLink, useLocation } from "react-router-dom";
 import { formatDate, formatCreationDate } from "utils/dates";
+import { MainCard } from "components/MainCard";
 
 function QueryNavLink({ to, ...props }) {
   let location = useLocation();
@@ -13,7 +14,8 @@ function QueryNavLink({ to, ...props }) {
 
 export const SearchPageCard = () => {
   const [searchParams] = useSearchParams();
-  let search = searchParams.get("query");
+  let search = searchParams.get("query").toLowerCase();
+  console.log(search);
 
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -26,8 +28,9 @@ export const SearchPageCard = () => {
       try {
         setIsLoading(true);
         const response = await getPosts();
+        console.log(response.data.posts);
         const newPosts = response.data.posts.filter((post) =>
-          post.title.includes(search)
+          post.title.includes(search.toLowerCase())
         );
         console.log("newPosts", newPosts);
         setPosts(response.data.posts);
@@ -39,12 +42,16 @@ export const SearchPageCard = () => {
       }
     };
     get();
-  }, []);
+  }, [search]);
+
+  // Error message
+  const containerResults =
+    "m-3 w-[70%] rounded-lg border bg-[#ffffffec] translate-x-[300px]  -translate-y-[270px]";
 
   if (!isLoading && isError)
     return (
-      <div>
-        <h3 className="text-5xl font-bold text-indigo-700">
+      <div className={containerResults}>
+        <h3 className="text-5xl font-bold text-indigo-700 ">
           Oops. There was an error <br></br>
         </h3>
         <h3 className="text-5xl font-bold mt-6 text-indigo-500">
@@ -53,17 +60,31 @@ export const SearchPageCard = () => {
       </div>
     );
 
+  <div>
+    {isLoading
+      ? demoArray.map((number) => <Loader key={number} />)
+      : posts.map((post) => <MainCard key={post._id} post={post} />)}
+  </div>;
+
+  const oops = "text-5xl font-bold mt-6 mb-6 text-center text-indigo-700";
+  const anotherWord =
+    "text-5xl font-bold mt-6 mb-6 text-center text-indigo-500";
+
   if (filteredPosts.length == 0)
     return (
-      <div>
-        <h3 className="text-5xl font-bold text-indigo-700">
+      <div className={containerResults}>
+        <h3 className={oops}>
           Oops. No post with that title related <br></br>
         </h3>
-        <h3 className="text-5xl font-bold mt-6 text-indigo-500">
-          Try again with another word
-        </h3>
+        <h3 className={anotherWord}>Try again with another word</h3>
       </div>
     );
+
+  <div>
+    {isLoading
+      ? demoArray.map((number) => <Loader key={number} />)
+      : posts.map((post) => <MainCard key={post._id} post={post} />)}
+  </div>;
 
   return (
     <div>
@@ -71,10 +92,7 @@ export const SearchPageCard = () => {
         ? demoArray.map((number) => <Loader key={number} />)
         : filteredPosts.map((post) => {
             return (
-              <div
-                className="m-3 border w-[70%] rounded-md border-black translate-x-[350px]  -translate-y-[220px]"
-                post={post}
-              >
+              <div className={containerResults} post={post}>
                 <div className="flex">
                   <img
                     className="rounded-full w-[60px] h-[60px] m-4"
