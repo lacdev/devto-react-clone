@@ -13,6 +13,7 @@ import { CodeNewbie } from 'components/CodeNewbie'
 import StickerPack from 'components/StickerPack'
 import Listings from 'components/Listings'
 import { CardsContainer } from 'components/MainCard'
+import { HomeLoader } from 'components/HomeLoader'
 
 function Home() {
   return (
@@ -20,17 +21,17 @@ function Home() {
       <Container>
         <MongoBanner />
         <Main>
-          <Columns>
+          <Columns minWidth="w-1/4 hidden md:block">
             <IconList />
             <OtherList />
             <SocialMediaIcons />
             <StickerPack />
             <LeftBarAdvertising />
           </Columns>
-          <Columns>
+          <Columns minWidth="md:w-2/4 w-full md:w-3/4">
             <CardsContainer />
           </Columns>
-          <Columns>
+          <Columns minWidth="w-1/4 hidden lg:block">
             <CodeNewbie />
             <MongoStories />
             <Listings />
