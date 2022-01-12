@@ -16,6 +16,9 @@ const Card = ({ post }) => {
     postImage: 'rounded-tl-lg rounded-tr-lg',
     avatarImage: 'w-16 h-16 mx-4 rounded-full cursor-pointer',
     userName: 'font-semibold text-base',
+    postTitle:
+      'font-bold text-3xl mt-2 cursor-pointer hover:text-indigo-700 mb-2',
+    postDate: 'text-gray-600 text-sm',
   }
 
   const creationDate = formatCreationDate(post?.date)
@@ -36,13 +39,11 @@ const Card = ({ post }) => {
         </div>
         <div>
           <h2 className={classes.userName}>{post?.name}</h2>
-          <h3 className="text-gray-600 text-sm">
+          <h3 className={classes.postDate}>
             {`${creationDate} (${currentDate})`}
           </h3>
           <QueryNavLink to={`/post/${post?._id}`}>
-            <h1 className="font-bold text-3xl mt-2 cursor-pointer hover:text-indigo-700 mb-2">
-              {post?.title}
-            </h1>
+            <h1 className={classes.postTitle}>{post?.title}</h1>
           </QueryNavLink>
 
           <div className="flex">
