@@ -7,8 +7,8 @@ import ModalDelete from './ModalDelete'
 import { LoaderPost } from './LoaderPost'
 
 function OnePost({ name, title, imageURL, content, tags }) {
-  let params = useParams()
-  console.log(params)
+  let params = useParams();
+  console.log(params);
 
   const [renderData, setRenderData] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
@@ -25,8 +25,8 @@ function OnePost({ name, title, imageURL, content, tags }) {
         console.log(renderData)
         setIsLoading(false)
       } catch (error) {
-        console.log(error)
-        setIsError(true)
+        console.log(error);
+        setIsError(true);
       }
     }
     get();
@@ -61,56 +61,56 @@ function OnePost({ name, title, imageURL, content, tags }) {
 
   const classes = {
     tagLink:
-      'text-xs mr-1 px-2 py-1 border rounded-lg  text-center border-white hover:border-gray-400 hover:bg-gray-100',
+      'text-xs mr-1 px-2 py-1 border rounded-lg m-4  text-center border-white hover:border-gray-400 hover:bg-gray-100',
     commentsButtons:
-      'px-2 py-1 mr-3 text-sm rounded-md hover:bg-gray-100 bg-white hover:font-base',
-    avatarImage: 'w-16 h-16 mx-4 rounded-full cursor-pointer',
-    userName: 'font-semibold text-base',
-  }
-  return ( 
+      "px-2 py-1 mr-3 text-sm rounded-md hover:bg-gray-100 bg-white hover:font-base",
+    avatarImage: "w-16 h-16 mx-4 rounded-full cursor-pointer",
+    userName: "font-semibold text-base",
+  };
+  return (
     <>
-     { !isLoading ? (
-    <div className="bg-white pb-3 w-auto h-auto">
-      <div className="rounded-lg border w-full bg-white shadow-sm mb-4">
-        <div className="rounded-lg">
-          <img alt="dev" src={renderData?.imageURL}></img>
-        </div>
-      </div>
-      <div className="p-4 flex">
-        <div className={classes.avatarImage}>
-          <img
-            className="rounded-full"
-            src={renderData?.avatar}
-            alt="linus"
-          ></img>
-        </div>
-        <div className="flex flex-col">
-          <h2 className={classes.userName}>{renderData?.name}</h2>
-          <h3 className="text-gray-600 text-sm">
-            {' '}
-            {`Posted on ${formatCreationDate(renderData?.date)}`}
-          </h3>
-        </div>
-      </div>
+      {!isLoading ? (
+        <div className="bg-white pb-3 w-auto h-auto">
+          <div className="rounded-lg border w-full bg-white shadow-sm mb-4">
+            <div className="rounded-lg">
+              <img alt="dev" src={renderData?.imageURL}></img>
+            </div>
+          </div>
+          <div className="p-4 flex">
+            <div className={classes.avatarImage}>
+              <img
+                className="rounded-full"
+                src={renderData?.avatar}
+                alt="linus"
+              ></img>
+            </div>
+            <div className="flex flex-col">
+              <h2 className={classes.userName}>{renderData?.name}</h2>
+              <h3 className="text-gray-600 text-sm">
+                {' '}
+                {`Posted on ${formatCreationDate(renderData?.date)}`}
+              </h3>
+            </div>
+          </div>
 
-      <div className="p-10">
-        <h1 className="font-bold text-3xl mt-2 cursor-pointer hover:text-indigo-700 mb-2 text-center">
-          {' '}
-          {renderData?.title}
-        </h1>
-        <div className="flex">
-          {renderData?.tags?.map((tag) => {
-            return (
-              <a href="#/" className={classes.tagLink}>
-                {`#${tag}`}
-              </a>
-            )
-          })}
-        </div>
-        <p className="text-lg break-words text-justify">
-          {renderData?.content}
-        </p>
-      </div>
+          <div className="p-6">
+            <h1 className="font-bold ml-4 text-3xl cursor-pointer hover:text-indigo-700">
+              {' '}
+              {renderData?.title}
+            </h1>
+            <div className="flex">
+              {renderData?.tags?.map((tag) => {
+                return (
+                  <a href="#/" className={classes.tagLink}>
+                    {`#${tag}`}
+                  </a>
+                )
+              })}
+            </div>
+            <p className="text-lg break-words text-justify">
+              {renderData?.content}
+            </p>
+          </div>
 
       <div className="flex m-3 px-1 py-2 place-content-end">
         <ModalEdit handleSubmit={handleSubmit}/>
@@ -119,8 +119,7 @@ function OnePost({ name, title, imageURL, content, tags }) {
     </div>
   ) : <LoaderPost/>}
     </>
-    
   )
 }
 
-export default OnePost
+export default OnePost;

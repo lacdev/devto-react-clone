@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { getPost, updatePost } from 'services/posts'
-import { useNavigate, useParams } from 'react-router-dom'
+import { getPost } from 'services/posts'
+import { useParams } from 'react-router-dom'
 
 function ModalEdit({handleSubmit}) {
   const classes = {
@@ -32,16 +32,13 @@ function ModalEdit({handleSubmit}) {
   const [imagenURL, setImagenURL] = useState('')
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
-  const navigate = useNavigate();
   const params = useParams()
   
 
   useEffect(() => {
     const get = async () => {
-      const { title, imagenURL, content } = await getPost(
-        params.postId
-      )
-    
+      const { title, imagenURL, content } = await getPost(params.postId)
+
       setImagenURL(imagenURL)
       setTitle(title)
       setContent(content)
