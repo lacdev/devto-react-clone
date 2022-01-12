@@ -52,7 +52,6 @@ const CardsContainer = () => {
 
   return (
     <div>
-      <HomeLoader />
       <FiltersContainer
         onFilterClick={handleFilterClick}
         selectedFilter={selectedFilter}
