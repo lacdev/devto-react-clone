@@ -1,13 +1,13 @@
 const CommentSection = () => {
   const classes = {
-    avatar: 'w-10 h-10 mx-4 rounded-full cursor-pointer',
+    avatar: "w-10 h-10 mx-4 rounded-full cursor-pointer",
     subscribe:
-      'bg-gray-100 hover:bg-gray-200 hover:text-gray-600 text-gray-500 font-semibold py-2 px-3 rounded text-center border-2 border-gray-300 hover:border-gray-400',
-    commentBorder: 'p-3 border rounded-md border-gray-300',
+      "bg-gray-100 hover:bg-gray-200 hover:text-gray-600 text-gray-500 font-semibold py-2 px-3 rounded text-center border-2 border-gray-300 hover:border-gray-400",
+    commentBorder: "p-3 border rounded-md border-gray-300",
     commentsButtons:
-      'px-2 py-1 mr-3 font-medium rounded-md hover:bg-gray-200 bg-slate-100 hover:font-medium',
-    discussion: 'font-bold text-2xl',
-  }
+      "px-2 py-1 mr-3 font-medium rounded-md hover:bg-gray-200 bg-slate-100 hover:font-medium",
+    discussion: "font-bold text-2xl",
+  };
 
   return (
     <div className="w-3/4 p-10 bg-white">
@@ -112,7 +112,7 @@ const CommentSection = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export { CommentSection }
+export { CommentSection };
