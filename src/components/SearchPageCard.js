@@ -28,11 +28,16 @@ export const SearchPageCard = () => {
       try {
         setIsLoading(true);
         const response = await getPosts();
-        console.log(response.data.posts);
-        const newPosts = response.data.posts.filter((post) =>
-          post.title.includes(search.toLowerCase())
-        );
-        console.log("newPosts", newPosts);
+
+        //Filtro de busqueda
+        const newPosts = response.data.posts.filter((post) => {
+          if (search == "") {
+            return post;
+          } else if (post.title.toLowerCase().includes(search.toLowerCase())) {
+            return post;
+          }
+        });
+
         setPosts(response.data.posts);
         setFilteredPosts(newPosts);
         setIsLoading(false);
