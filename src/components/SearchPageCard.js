@@ -1,52 +1,53 @@
-import React from "react";
-import { useSearchParams } from "react-router-dom";
-import { getPosts } from "services/posts";
-import { useState, useEffect } from "react";
-import { Loader } from "./Loader";
-import { NavLink, useLocation } from "react-router-dom";
-import { formatDate, formatCreationDate } from "utils/dates";
-import { MainCard } from "components/MainCard";
+import React from 'react'
+import { useSearchParams } from 'react-router-dom'
+import { getPosts } from 'services/posts'
+import { useState, useEffect } from 'react'
+import { Loader } from './Loader'
+import { NavLink, useLocation } from 'react-router-dom'
+import { formatDate, formatCreationDate } from 'utils/dates'
+import { Card } from 'components/Card'
+import { HomeLoader } from 'components/HomeLoader'
 
 function QueryNavLink({ to, ...props }) {
-  let location = useLocation();
-  return <NavLink to={to + location.search} {...props} />;
+  let location = useLocation()
+  return <NavLink to={to + location.search} {...props} />
 }
 
 export const SearchPageCard = () => {
-  const [searchParams] = useSearchParams();
-  let search = searchParams.get("query").toLowerCase();
-  console.log(search);
+  const [searchParams] = useSearchParams()
+  let search = searchParams.get('query').toLowerCase()
+  console.log(search)
 
-  const [filteredPosts, setFilteredPosts] = useState([]);
-  const [posts, setPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const demoArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const [filteredPosts, setFilteredPosts] = useState([])
+  const [posts, setPosts] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [isError, setIsError] = useState(false)
+  const demoArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
   useEffect(() => {
     const get = async () => {
       try {
-        setIsLoading(true);
-        const response = await getPosts();
-        console.log(response.data.posts);
+        setIsLoading(true)
+        const response = await getPosts()
+        console.log(response.data.posts)
         const newPosts = response.data.posts.filter((post) =>
           post.title.includes(search.toLowerCase())
-        );
-        console.log("newPosts", newPosts);
-        setPosts(response.data.posts);
-        setFilteredPosts(newPosts);
-        setIsLoading(false);
+        )
+        console.log('newPosts', newPosts)
+        setPosts(response.data.posts)
+        setFilteredPosts(newPosts)
+        setIsLoading(false)
       } catch (error) {
-        console.log(error);
-        setIsError(true);
+        console.log(error)
+        setIsError(true)
       }
-    };
-    get();
-  }, [search]);
+    }
+    get()
+  }, [search])
 
   // Error message
   const containerResults =
-    "m-3 w-[70%] rounded-lg border bg-[#ffffffec] translate-x-[300px]  -translate-y-[270px]";
+    'm-3 w-[70%] rounded-lg border bg-[#ffffffec] translate-x-[300px]  -translate-y-[270px]'
 
   if (!isLoading && isError)
     return (
@@ -58,19 +59,17 @@ export const SearchPageCard = () => {
           Try again later
         </h3>
       </div>
-    );
-
-  <div>
+    )
+  ;<div>
     {isLoading
       ? demoArray.map((number) => <Loader key={number} />)
-      : posts.map((post) => <MainCard key={post._id} post={post} />)}
-  </div>;
+      : posts.map((post) => <Card key={post._id} post={post} />)}
+  </div>
 
-  const oops = "text-5xl font-bold mt-6 mb-6 text-center text-indigo-700";
-  const anotherWord =
-    "text-5xl font-bold mt-6 mb-6 text-center text-indigo-500";
+  const oops = 'text-5xl font-bold mt-6 mb-6 text-center text-indigo-700'
+  const anotherWord = 'text-5xl font-bold mt-6 mb-6 text-center text-indigo-500'
 
-  if (filteredPosts.length == 0)
+  if (filteredPosts.length === 0)
     return (
       <div className={containerResults}>
         <h3 className={oops}>
@@ -78,13 +77,12 @@ export const SearchPageCard = () => {
         </h3>
         <h3 className={anotherWord}>Try again with another word</h3>
       </div>
-    );
-
-  <div>
+    )
+  ;<div>
     {isLoading
       ? demoArray.map((number) => <Loader key={number} />)
-      : posts.map((post) => <MainCard key={post._id} post={post} />)}
-  </div>;
+      : posts.map((post) => <Card key={post._id} post={post} />)}
+  </div>
 
   return (
     <div>
@@ -102,12 +100,12 @@ export const SearchPageCard = () => {
 
                   <div>
                     <h1 className="text-3xl font-bold mx-3 mt-3">
-                      {" "}
+                      {' '}
                       {post.name}
                     </h1>
 
                     <h2 className="text-xl text mx-3 mt-3 ">
-                      {" "}
+                      {' '}
                       {`${formatCreationDate(post?.date)} (${formatDate(
                         post?.date
                       )})`}
@@ -125,7 +123,7 @@ export const SearchPageCard = () => {
                           <a href="#/" className="m-2 ">
                             {`#${tag}`}
                           </a>
-                        );
+                        )
                       })}
                     </div>
                     <button className="px-2 py-1 mr-3 text-sm rounded-md hover:bg-gray-100 bg-white hover:font-base">
@@ -145,8 +143,8 @@ export const SearchPageCard = () => {
                   </div>
                 </div>
               </div>
-            );
+            )
           })}
     </div>
-  );
-};
+  )
+}

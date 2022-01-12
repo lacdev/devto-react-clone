@@ -1,69 +1,12 @@
-import { formatDate, formatCreationDate } from 'utils/dates'
+import { formatCreationDate, formatDate } from 'utils/dates'
 import { NavLink, useLocation } from 'react-router-dom'
-import { getPosts } from 'services/posts'
-import { useState, useEffect } from 'react'
-// import { Loader } from './Loader'
-import { FiltersContainer } from 'components/FiltersContainer'
-import { HomeLoader } from './HomeLoader'
 
 function QueryNavLink({ to, ...props }) {
   let location = useLocation()
   return <NavLink to={to + location.search} {...props} />
 }
 
-const CardsContainer = () => {
-  const [posts, setPosts] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [isError, setIsError] = useState(false)
-  const [selectedFilter, setSelectedFilter] = useState('')
-  const demoArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-  useEffect(() => {
-    const get = async () => {
-      try {
-        setIsLoading(true)
-        const response = await getPosts(selectedFilter)
-        setPosts(response.data.posts)
-        setIsLoading(false)
-      } catch (error) {
-        console.log(error)
-        setIsError(true)
-      }
-    }
-    get()
-  }, [selectedFilter])
-
-  const handleFilterClick = (event) => {
-    const { id } = event.target
-    setSelectedFilter(id)
-  }
-
-  if (!isLoading && isError)
-    return (
-      <div>
-        <h3 className="text-5xl font-bold text-indigo-700">
-          Oops. There was an error <br></br>
-        </h3>
-        <h3 className="text-5xl font-bold mt-6 text-indigo-500">
-          Try again later
-        </h3>
-      </div>
-    )
-
-  return (
-    <div>
-      <FiltersContainer
-        onFilterClick={handleFilterClick}
-        selectedFilter={selectedFilter}
-      />
-      {isLoading
-        ? demoArray.map((number) => <HomeLoader key={number} />)
-        : posts.map((post) => <MainCard key={post._id} post={post} />)}
-    </div>
-  )
-}
-
-const MainCard = ({ post }) => {
+const Card = ({ post }) => {
   const classes = {
     tagLink:
       'text-xs mr-1 px-2 py-1 border rounded-lg border-white hover:border-gray-400 hover:bg-gray-100',
@@ -149,4 +92,4 @@ const MainCard = ({ post }) => {
   )
 }
 
-export { MainCard, CardsContainer, QueryNavLink }
+export { Card }
