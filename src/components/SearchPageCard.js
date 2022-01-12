@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { Loader } from './Loader'
 import { NavLink, useLocation } from 'react-router-dom'
 import { formatDate, formatCreationDate } from 'utils/dates'
-import { MainCard } from 'components/MainCard'
+import { Card } from 'components/Card'
 
 function QueryNavLink({ to, ...props }) {
   let location = useLocation()
@@ -67,7 +67,7 @@ export const SearchPageCard = () => {
   ;<div>
     {isLoading
       ? demoArray.map((number) => <Loader key={number} />)
-      : posts.map((post) => <MainCard key={post._id} post={post} />)}
+      : posts.map((post) => <Card key={post._id} post={post} />)}
   </div>
 
   const oops = 'text-5xl font-bold mt-6 mb-6 text-center text-indigo-700'
@@ -85,7 +85,7 @@ export const SearchPageCard = () => {
   ;<div>
     {isLoading
       ? demoArray.map((number) => <Loader key={number} />)
-      : posts.map((post) => <MainCard key={post._id} post={post} />)}
+      : posts.map((post) => <Card key={post._id} post={post} />)}
   </div>
 
   return (
